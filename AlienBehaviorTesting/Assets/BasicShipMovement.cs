@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Leaffall : MonoBehaviour {
+public class BasicShipMovement : MonoBehaviour {
 	
 	//Start postion of object
 	private float startPosY;
@@ -73,7 +73,7 @@ public class Leaffall : MonoBehaviour {
 	
 		if (c.gameObject.CompareTag("Ground"))
 		{
-			float upForce = fm * 0.1f;
+			float upForce = fm * 0.001f;
 			rigidbody.AddForce(new Vector3(0.0f, upForce, 0.0f));
             Debug.Log ("Ground force: "+upForce);
 			nextBoost = startPosY;
