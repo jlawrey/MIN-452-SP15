@@ -11,6 +11,14 @@ ModelImporter:
     100010: pSphere2
     100012: pSphere3
     100014: //RootNode
+    100016: group1
+    100018: pCylinder1
+    100020: pSphere4
+    100022: pSphere5
+    100024: pSphere6
+    100026: pSphere7
+    100028: pSphere8
+    100030: pSphere9
     400000: pCone1
     400002: pCone2
     400004: pCone3
@@ -19,6 +27,14 @@ ModelImporter:
     400010: pSphere2
     400012: pSphere3
     400014: //RootNode
+    400016: group1
+    400018: pCylinder1
+    400020: pSphere4
+    400022: pSphere5
+    400024: pSphere6
+    400026: pSphere7
+    400028: pSphere8
+    400030: pSphere9
     2300000: pCone1
     2300002: pCone2
     2300004: pCone3
@@ -26,6 +42,13 @@ ModelImporter:
     2300008: pSphere1
     2300010: pSphere2
     2300012: pSphere3
+    2300014: pCylinder1
+    2300016: pSphere4
+    2300018: pSphere5
+    2300020: pSphere6
+    2300022: pSphere7
+    2300024: pSphere8
+    2300026: pSphere9
     3300000: pCone1
     3300002: pCone2
     3300004: pCone3
@@ -33,6 +56,13 @@ ModelImporter:
     3300008: pSphere1
     3300010: pSphere2
     3300012: pSphere3
+    3300014: pCylinder1
+    3300016: pSphere4
+    3300018: pSphere5
+    3300020: pSphere6
+    3300022: pSphere7
+    3300024: pSphere8
+    3300026: pSphere9
     4300000: pSphere1
     4300002: pSphere2
     4300004: pCone1
@@ -40,6 +70,13 @@ ModelImporter:
     4300008: pSphere3
     4300010: pCone3
     4300012: pCone4
+    4300014: pCylinder1
+    4300016: pSphere4
+    4300018: pSphere5
+    4300020: pSphere6
+    4300022: pSphere7
+    4300024: pSphere8
+    4300026: pSphere9
     9500000: //RootNode
   materials:
     importMaterials: 1
