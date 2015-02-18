@@ -3,6 +3,9 @@ using System.Collections;
 
 public class BasicShipMovement : MonoBehaviour {
 	
+	
+	public Transform flightArea;
+	
 	//Start postion of object
 	private float startPosY;
 	

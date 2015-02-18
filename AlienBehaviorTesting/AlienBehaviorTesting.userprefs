@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BasicShipMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BasicShipMovementHover.cs">
     <Files>
-      <File FileName="Assets/BasicShipMovement.cs" Line="75" Column="4" />
+      <File FileName="Assets/BasicShipMovementHover.cs" Line="16" Column="2" />
+      <File FileName="Assets/LaserShot.cs" Line="8" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
