@@ -46,12 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BasicShipMovement.cs" />
-     <Compile Include="Assets\BasicShipMovementHover.cs" />
-     <Compile Include="Assets\BasicShipMovementRandom.cs" />
-     <Compile Include="Assets\LaserShot.cs" />
-     <Compile Include="Assets\ShipFireLaser.cs" />
+     <Compile Include="Assets\Scripts\BasicShipMovement.cs" />
+     <Compile Include="Assets\Scripts\BasicShipMovementHover.cs" />
+     <Compile Include="Assets\Scripts\BasicShipMovementRandom.cs" />
+     <Compile Include="Assets\Scripts\LaserShot.cs" />
+     <Compile Include="Assets\Scripts\ShipFireLaser.cs" />
+     <Compile Include="Assets\Scripts\keyMoveCam.cs" />
+     <Compile Include="Assets\Scripts\lookAt.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\UFO3D\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
