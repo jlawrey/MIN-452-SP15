@@ -2,26 +2,48 @@
 using System.Collections;
 
 public class pickUp : MonoBehaviour {
-
-	private GameObject cow;
-	// Use this for initialization
-	void Start () {
 	
+	public GameObject ship;
+	private GameObject[] cow;
+	public GameObject halo;
+	private float lightChange = 2f;
+	private bool release;
+	
+	void Start () {
+		cow = new GameObject[GameObject.FindGameObjectsWithTag("Livestock").Length];
+		halo.light.range = lightChange;
+		release  = false;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 	
-		if (Input.GetAxis("Vertical") != 0)
+		if (release)
 		{
-			if (cow != null)
-			{
-				cow.hingeJoint.breakForce = .001f;
-				cow.AddComponent("SphereCollider") as SphereCollider;
-				cow.AddComponent("HingeJoint") as HingeJoint;
-				cow= null;
-			}
 			
+		 for (int i = 0 ; i < cow.Length ; i++)
+		 {
+
+		 
+			if (cow[i] != null)
+			{
+				
+				if(cow[i].gameObject.hingeJoint != null)
+				{
+					halo.light.range -= lightChange;
+						if (halo.light.range <= lightChange)
+							halo.light.range = lightChange;
+					cow[i].hingeJoint.breakForce = .001f;
+					cow[i]= null;
+					ship.SendMessage("releaseObject");
+					
+				}
+				
+				
+			}
+		  }
+		release = false;
+		
 		}
 	
 	}
@@ -30,14 +52,41 @@ public class pickUp : MonoBehaviour {
 	{
 		if (c.gameObject.CompareTag("Livestock"))
 		{
-			cow = c.gameObject;
+			
+			
+			if(c.gameObject.hingeJoint == null){
+				
+				c.gameObject.AddComponent("HingeJoint");
+				halo.light.range += lightChange;
+				ship.SendMessage("gotObject");
+			}
+			
+			
+			if(c.gameObject.hingeJoint != null){
+			//
+			
 			c.gameObject.hingeJoint.connectedBody = rigidbody;
-		}
-		
-		
-		
+			
+	
+			}
+			
+			for (int k = 0 ; k < cow.Length ; k++)
+			{
+				if (cow[k] == null)
+				{
+					cow[k] = c.gameObject;
+					k = cow.Length;//Exit loop
+				}
+			}
+		}	
 		
 	
 	}
+	
+	void releaseClaw()
+	{
+		release = true;
+	}
+	
 	
 }

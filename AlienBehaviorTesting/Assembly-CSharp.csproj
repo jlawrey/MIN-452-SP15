@@ -53,9 +53,14 @@
      <Compile Include="Assets\Scripts\ShipFireLaser.cs" />
      <Compile Include="Assets\Scripts\keyMoveCam.cs" />
      <Compile Include="Assets\Scripts\lookAt.cs" />
+     <Compile Include="Assets\cowSeek.cs" />
+     <Compile Include="Assets\liveStock.cs" />
      <Compile Include="Assets\pickUp.cs" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\UFO3D\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
