@@ -14,6 +14,7 @@ public class Z_VRCam : MonoBehaviour {
 	public float mHeadDist;
 	public Vector3 mHeadPos;
 	public Transform VRHead;
+	public float offsetY = .5f;
 
 
 
@@ -28,15 +29,15 @@ public class Z_VRCam : MonoBehaviour {
 	void Update () {
 
 		mHeadX = VRHead.position.x;
-		mHeadY = VRHead.position.y;
-		mHeadDist = Mathf.Abs (VRHead.position.z/2);
+		mHeadY = VRHead.position.y + offsetY;
+		mHeadDist = Mathf.Abs (VRHead.position.z);
 		MatrixFOV ();//runs the projection matrix based on the x,y,z values
 	
 	}
 	
 	public void MatrixFOV(){
 		HeadCam.ResetProjectionMatrix();
-		Matrix4x4 m = PerspectiveOffCenter (//original Lee values
+		Matrix4x4 m = PerspectiveOffCenter (//original values
 		                                    near*(-.5f * screenAspect + mHeadX)/(mHeadDist),//left,  
 		                                    near*(.5f * screenAspect + mHeadX)/(mHeadDist),//right
 		                                    near*(-.5f - mHeadY)/(mHeadDist),//bottom
@@ -45,7 +46,7 @@ public class Z_VRCam : MonoBehaviour {
 		                                    100//far 
 		                                    );
 		HeadCam.projectionMatrix = m;
-		HeadCam.worldToCameraMatrix = LookAtMatrixRH(new Vector3(mHeadX, mHeadY, -mHeadDist),new Vector3(mHeadX, mHeadY,0),new Vector3(0,1,0));
+		HeadCam.worldToCameraMatrix = LookAtMatrixRH(new Vector3(mHeadX, mHeadY+ offsetY, -mHeadDist),new Vector3(mHeadX, mHeadY + offsetY,0),new Vector3(0,1,0));
 
 	}
 
