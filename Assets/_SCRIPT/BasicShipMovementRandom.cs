@@ -3,9 +3,12 @@ using System.Collections;
 
 public class BasicShipMovementRandom : MonoBehaviour {
 	
-	
+
+	//Must assign flight area object with box collider set to trigger
 	public GameObject flightAreaObj;
 	private BoxCollider flightArea;
+
+	//Bounds set by collider
 	private float zBound;
 	private float zNegBound;
 	private float xBound;
@@ -13,19 +16,15 @@ public class BasicShipMovementRandom : MonoBehaviour {
 	private float yBound;
 	private float yNegBound;
 	
-	
-	private Vector3 nextBoostV;
-	
-	//Start postion of object
+
+	private Vector3 nextBoostV;//Velocity for next boost
+	private float nextBoostT;// Timer for next boost
+
+	public float boostInterval = 1f;//How often to boost
+
+	//Start postion of ship
 	private float startPosY;
 	
-	//Direction to apply the boost force
-    private bool forceDirL;
-	public float boostInterval = 50f;
-	
-    private float nextBoostT;
-
-    
     //force multiplier
     public float fm = 5f;
     
@@ -33,11 +32,12 @@ public class BasicShipMovementRandom : MonoBehaviour {
     public float maxBoost = 60f;
 	public float minBoostY = 150f;
 	public float maxBoostY = 300f;
+
 	private float nextBoostZ;
 	private float nextBoostX;
 	private float nextBoostY;
     
-    public Animator anim;
+    public Animator anim;//Connection to animator
     
     private float z;
     private float x;
@@ -49,6 +49,8 @@ public class BasicShipMovementRandom : MonoBehaviour {
 	void Start () {
 	
 		flightArea = flightAreaObj.collider as BoxCollider;
+
+		//Find uppder and lower bounds of flight area
 		zBound = (flightArea.size.z * flightAreaObj.transform.localScale.z) + flightAreaObj.transform.position.z;
 		zNegBound = (flightArea.size.z * flightAreaObj.transform.localScale.z) * -1 + flightAreaObj.transform.position.z;
 		xBound =  (flightArea.size.x * flightAreaObj.transform.localScale.x) + flightAreaObj.transform.position.x;
@@ -56,22 +58,24 @@ public class BasicShipMovementRandom : MonoBehaviour {
 		yBound =  (flightArea.size.y * flightAreaObj.transform.localScale.y) + flightAreaObj.transform.position.y;
 		yNegBound = (flightArea.size.y * flightAreaObj.transform.localScale.y) * -1 + flightAreaObj.transform.position.y;
 		
-      	
-		nextBoostT = 40;
+      	//Initialize boost timer
+		nextBoostT = boostInterval;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () 
     {
-    	nextBoostT--;
+    	nextBoostT -= Time.deltaTime;//Decrement timer
     	
-        if (nextBoostT <= 0) 
+        if (nextBoostT <= 0)//If a boost is to be applied
         {
 
+			//find ship position
 			z = transform.position.z;
 			x = transform.position.x;
 			y = transform.position.y;
-			
+
+			//If ship is within all the bounds, set to randomly boost
 			if (z < zBound && z > zNegBound && x < xBound && x > xNegBound && y < yBound && y > yNegBound  )
 			{
 				
@@ -79,6 +83,8 @@ public class BasicShipMovementRandom : MonoBehaviour {
 				nextBoostX = Random.Range(-maxBoost,maxBoost);
 				nextBoostY = Random.Range(minBoostY, maxBoostY);
 			}
+
+			//If ship is above Z bound, stop it in Z, set to boost it only negativley in Z
 			if (z > zBound)
 			{
 				rigidbody.velocity = new Vector3(rigidbody.velocity.x,rigidbody.velocity.y,0);
@@ -86,34 +92,35 @@ public class BasicShipMovementRandom : MonoBehaviour {
 				;
 				
 			}
+			//If ship is below neg Z bound, stop it in Z, set to boost it only pos in Z
 			if (z < zNegBound)
 			{
 				rigidbody.velocity = new Vector3(rigidbody.velocity.x,rigidbody.velocity.y,0);
 				nextBoostZ = Random.Range(minBoost,maxBoost) ;
 				
 			}
+			//If ship is above X bound, stop it in X, set to boost it only negativley in X
 			if (x > xBound)
 			{
 				rigidbody.velocity = new Vector3(0,rigidbody.velocity.y,rigidbody.velocity.z);
 				nextBoostX = Random.Range(minBoost,maxBoost) * -1;
 				anim.SetTrigger("leftBoost");
 			}
+			//If ship is above neg X bound, stop it in X, set to boost it only pos in X
 			if ( x < xNegBound)
 			{
 				rigidbody.velocity = new Vector3(0,rigidbody.velocity.y,rigidbody.velocity.z);
 				nextBoostX = Random.Range(minBoost,maxBoost);
-				
-				
 			}
-			
+
+			//If ship is above Y bound, stop it in Y, set to no y boost
 			if (y > yBound)
 			{
 				rigidbody.velocity = new Vector3(rigidbody.velocity.x,0,rigidbody.velocity.z);
-
 				nextBoostY = 0;
-				
-				
 			}
+
+			//If ship is below neg Y bound, stop it in Y, set to max Y boost
 			if ( y < yNegBound)
 			{
 
@@ -123,8 +130,10 @@ public class BasicShipMovementRandom : MonoBehaviour {
 				
 			}
 			
-			
+			//Compile boost for each axis
 			nextBoostV = new Vector3(nextBoostX*fm,nextBoostY*fm,nextBoostZ*fm);
+
+			//set anim state based on y or x boosts
 			if (nextBoostY >= maxBoost)
 			{
 				anim.SetTrigger("bothBoost");
@@ -138,23 +147,22 @@ public class BasicShipMovementRandom : MonoBehaviour {
 				anim.SetTrigger("rightBoost");
 			}
 			
-			
+			//Apply the boost
 			rigidbody.AddForce(nextBoostV);
 			
-
+			//Reset boost timer
 			nextBoostT = boostInterval;
 		}
 	}
 	
 	void OnCollisionEnter(Collision c)
 	{
-	
+		//If ship hits the ground, max boost it
 		if (c.gameObject.CompareTag("Ground"))
 		{
-			float upForce = fm * 0.001f;
-			rigidbody.AddForce(new Vector3(0.0f, upForce, 0.0f));
-            
-			nextBoostT = startPosY;
+			float upForce = fm * maxBoostY;
+			rigidbody.AddForce(new Vector3(0.0f, upForce, 0.0f));   
+			nextBoostT = boostInterval;
 		}
 		
 	
