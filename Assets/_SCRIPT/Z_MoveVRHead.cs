@@ -20,8 +20,10 @@ public class Z_MoveVRHead : MonoBehaviour {
 	void Update () {
 	
 		if (Input.GetMouseButton(0) && HeadInput == InputMethod.Mouse) {
-			Vector3 headmover = new Vector3(Input.GetAxis ("Horizontal") * mult, Input.GetAxis("Vertical")*mult, VRHead.localPosition.z);
-			VRHead.localPosition = headmover;
+			VRHead.Translate(Input.GetAxis("Horizontal")*mult,Input.GetAxis("Vertical")*mult,0,Space.World);
 		}
 	}
+
+
+
 }
