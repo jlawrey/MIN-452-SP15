@@ -43,11 +43,11 @@ public class cowSeek : MonoBehaviour {
 	
 	}
 	
-	overTarget = new Vector3( target.transform.position.x, target.transform.position.y + hoverHeight,  target.transform.position.z);
+
 
 	if (target != null){
 		
-		
+			overTarget = new Vector3( target.transform.position.x, target.transform.position.y + hoverHeight,  target.transform.position.z);
 		//transform.position = Vector3.Lerp(transform.position, , Time.deltaTime);
 
 

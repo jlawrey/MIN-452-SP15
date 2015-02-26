@@ -67,7 +67,7 @@ public class BasicShipMovementRandom : MonoBehaviour {
     	
         if (nextBoostT <= 0) 
         {
-			Debug.Log("boost timer down");
+
 			z = transform.position.z;
 			x = transform.position.x;
 			y = transform.position.y;
@@ -109,14 +109,14 @@ public class BasicShipMovementRandom : MonoBehaviour {
 			if (y > yBound)
 			{
 				rigidbody.velocity = new Vector3(rigidbody.velocity.x,0,rigidbody.velocity.z);
-				Debug.Log("aboveY");
+
 				nextBoostY = 0;
 				
 				
 			}
 			if ( y < yNegBound)
 			{
-				Debug.Log("belowY");
+
 				rigidbody.velocity = new Vector3(rigidbody.velocity.x,0,rigidbody.velocity.z);
 				nextBoostY = maxBoostY;
 				
@@ -141,7 +141,7 @@ public class BasicShipMovementRandom : MonoBehaviour {
 			
 			rigidbody.AddForce(nextBoostV);
 			
-			Debug.Log("boost happened"+nextBoostV);
+
 			nextBoostT = boostInterval;
 		}
 	}
@@ -153,7 +153,7 @@ public class BasicShipMovementRandom : MonoBehaviour {
 		{
 			float upForce = fm * 0.001f;
 			rigidbody.AddForce(new Vector3(0.0f, upForce, 0.0f));
-            Debug.Log ("Ground force: "+upForce);
+            
 			nextBoostT = startPosY;
 		}
 		

@@ -3,33 +3,41 @@ using System.Collections;
 
 public class ShipFireLaser : MonoBehaviour {
 
-	public int gunStrength = 1;
-	public float fireRate = 2f;
-	private float nextShot;
+	//Connection to player, finds object with player tag
 	public GameObject player;
-	public GameObject laser;
-	public GameObject laserGun;
-	public bool firing = false;
-	public Animator animator;
-	// Use this for initialization
+
+
+	public float fireRate = 2f;	//How often the ship shoots
+
+
+	private float nextShot;	//Timer
+	private bool firing = true;//Sets where ship is firing or not, usually true
+	public GameObject laser;//Connection to laser shot prefab
+	public GameObject laserGun;//Connection to gun geometry
+	public Animator animator;//Connection to animator
+
+
+
+
 	void Start () {
-	
+	//Find object with player tag
 	player = GameObject.FindGameObjectWithTag("Player");
-	nextShot = fireRate;
+	nextShot = Random.Range(fireRate, fireRate*2);//Initalize timer
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
 	
-	nextShot -= Time.deltaTime;
+	nextShot -= Time.deltaTime;//Decrease timer by deltaTime
 	
-		//laserGun.transform.rotation = Quaternion.LookRotation(transform.position - player.transform.position);
-		laserGun.transform.LookAt(player.transform.position );
-	//laserGun.transform.rotation = Quaternion.Inverse(laserGun.transform.rotation);
+	//Point gun geometry at player
+	laserGun.transform.LookAt(player.transform.position );
+	
+	//If timer has hit 0, fire a shot
 	if (nextShot <0 && firing == true)
 	{
 		FireShot();
-		nextShot = fireRate;
+		nextShot = fireRate;//Reset timer
 	}
 	
 	
@@ -37,9 +45,9 @@ public class ShipFireLaser : MonoBehaviour {
 	
 	void FireShot()
 	{
-		//Quaternion rotateShot = Quaternion.FromToRotation(player.transform.position, transform.position);
-		//animator.SetTrigger("laserShot");
+		//Instantiate shot
 		GameObject nextShot = Instantiate(laser, transform.position, transform.rotation) as GameObject;
+		//Point it at the player, its own script handles movement
 		nextShot.transform.LookAt(player.transform);
 	}
 	
