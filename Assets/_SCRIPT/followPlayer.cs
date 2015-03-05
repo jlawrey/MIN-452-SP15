@@ -31,12 +31,12 @@ public class followPlayer : MonoBehaviour {
 		
 		if (transform.InverseTransformDirection(rigidbody.velocity).x > orbitSpeed )
 		{
-		Debug.Log("Neg Orbit correct");
+
 			rigidbody.AddRelativeForce(-orbitCorrect,0,0);
 		}
 		if (transform.InverseTransformDirection(rigidbody.velocity).x < -orbitSpeed )
 		{
-			Debug.Log("Pos Orbit correct");
+
 			rigidbody.AddRelativeForce(orbitCorrect,0,0);
 		}
 		
