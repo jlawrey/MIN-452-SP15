@@ -19,7 +19,7 @@ public class liveStock : MonoBehaviour {
 		{
 		
 			transform.rotation = new Quaternion(0,0,0,0);
-			getUpTimer = getUpTimer;
+			getUpTimer = getUpTime;
 		}
 		
 	
