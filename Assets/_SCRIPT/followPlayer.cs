@@ -4,11 +4,11 @@ using System.Collections;
 public class followPlayer : MonoBehaviour {
 	
 	private float flyHeight = 2f;
-	private float yBoost = 20f;
+	private float yBoost = 6f;
 	private float moveForce = 10f;
-	private float maxSpeed = 5f;
-	private float orbitSpeed = 5f;
-	private float orbitCorrect = 5f;
+	private float maxSpeed = 2f;
+	private float orbitSpeed = 2f;
+	private float orbitCorrect = 2f;
 	
 	// Use this for initialization
 	void Start () {
