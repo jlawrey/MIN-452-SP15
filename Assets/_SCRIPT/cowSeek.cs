@@ -3,11 +3,11 @@ using System.Collections;
 
 public class cowSeek : MonoBehaviour {
 
-	private float speed = 10f;
+	private float speed = 3f;
 	private float wiggle = 5f;
 	private GameObject[] livestock;
 	private GameObject target;
-	private float hoverHeight = 12;
+	private float hoverHeight = 3;
 	private bool hasObject;
 	private GameObject portal;
 	private Vector3 overTarget;
@@ -17,6 +17,7 @@ public class cowSeek : MonoBehaviour {
 	
 	livestock = GameObject.FindGameObjectsWithTag("Livestock");
 	portal = GameObject.FindGameObjectWithTag("Portal");
+	hoverHeight = 3*transform.localScale.y;
 	}
 	
 	// Update is called once per frame

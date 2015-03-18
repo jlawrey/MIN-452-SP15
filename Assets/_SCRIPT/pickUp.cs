@@ -6,7 +6,7 @@ public class pickUp : MonoBehaviour {
 	public GameObject ship;
 	private GameObject[] cow;
 	public GameObject halo;
-	private float lightChange = 2f;
+	private float lightChange = 1f;
 	private bool release;
 	
 	void Start () {

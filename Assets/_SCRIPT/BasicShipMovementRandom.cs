@@ -104,7 +104,7 @@ public class BasicShipMovementRandom : MonoBehaviour {
 			{
 				rigidbody.velocity = new Vector3(0,rigidbody.velocity.y,rigidbody.velocity.z);
 				nextBoostX = Random.Range(minBoost,maxBoost) * -1;
-				anim.SetTrigger("leftBoost");
+				//anim.SetTrigger("leftBoost");
 			}
 			//If ship is above neg X bound, stop it in X, set to boost it only pos in X
 			if ( x < xNegBound)
@@ -149,7 +149,7 @@ public class BasicShipMovementRandom : MonoBehaviour {
 			
 			//Apply the boost
 			rigidbody.AddForce(nextBoostV);
-			
+
 			//Reset boost timer
 			nextBoostT = boostInterval;
 		}
