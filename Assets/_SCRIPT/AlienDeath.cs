@@ -16,15 +16,32 @@ public class AlienDeath : MonoBehaviour {
 		if (c.gameObject.CompareTag("Weapon"))
 		{
 		
-			Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y+ upShift,transform.position.z);
-			deathParticle = Instantiate(deathParticle, particlePosition, transform.rotation) as GameObject;
-			//deathParticle.rigidbody.velocity = rigidbody.velocity;
-			Destroy(deathParticle, 1);
-			Destroy(gameObject);
-			
+			explode ();
 		
 		}
 		
 	}
-	
+
+	void OnTriggerEnter(Collision c)
+	{
+		if (c.gameObject.CompareTag ("Player")) 
+		{
+			didHitPlayer ();
+		}
+	}
+
+	void didHitPlayer()
+	{
+		explode ();
+	}
+
+	void explode()
+	{
+		Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y+ upShift,transform.position.z);
+		deathParticle = Instantiate(deathParticle, particlePosition, transform.rotation) as GameObject;
+		//deathParticle.rigidbody.velocity = rigidbody.velocity;
+		Destroy(deathParticle, 1);
+		Destroy(gameObject);
+
+	}
 }
