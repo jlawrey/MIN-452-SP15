@@ -34,7 +34,7 @@ public class AlienDeath : MonoBehaviour {
 
 	void didHitPlayer()
 	{
-		explode ();
+		Destroy (gameObject);
 	}
 
 	void explode()
