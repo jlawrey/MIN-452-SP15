@@ -42,10 +42,12 @@ public class followPlayer : MonoBehaviour {
 
 			rigidbody.AddRelativeForce(orbitCorrect,0,0);
 		}
+
 		if (Vector3.Distance(transform.position, player.transform.position) < 2f )
 		{
-			rigidbody.velocity = Vector3.zero;
+			transform.position = player.transform.position;
 		}
+
 		
 	}	
 	

@@ -22,12 +22,14 @@ public class AlienDeath : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collision c)
+	void OnTriggerEnter(Collider target)
 	{
-		if (c.gameObject.CompareTag ("Player")) 
+		if(target.tag == "Player")
 		{
 			didHitPlayer ();
 		}
+			
+
 	}
 
 	void didHitPlayer()
