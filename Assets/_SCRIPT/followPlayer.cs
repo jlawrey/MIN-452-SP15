@@ -46,6 +46,7 @@ public class followPlayer : MonoBehaviour {
 		if (Vector3.Distance(transform.position, player.transform.position) < 2f )
 		{
 			transform.position = player.transform.position;
+
 		}
 
 		
