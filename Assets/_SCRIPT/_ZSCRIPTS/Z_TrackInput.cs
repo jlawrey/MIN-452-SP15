@@ -10,7 +10,7 @@ public class Z_TrackInput : MonoBehaviour {
 	public InputMethod HeadInput;
 	
 	//WiiMote global variables
-	public Vector3 mHeadPosition = new Vector3(0,0,0);  // position of the users head when the last frame was rendered
+	//public Vector3 mHeadPosition = new Vector3(0,0,0);  // position of the users head
 	private float mHeadX = 0;                           // last calculated X position of the users head
 	private float mHeadY = 0;                           // last calculated Y position of the users head
 	private float mHeadDist = 0;                        // last calculated Z position of the users head
@@ -33,8 +33,8 @@ public class Z_TrackInput : MonoBehaviour {
 	void Update () {
 	
 		if (Input.GetMouseButton(0) && HeadInput == InputMethod.Mouse && VRHead.position.z < 0) {
-			VRHead.Translate(-Input.GetAxis("Horizontal")*MouseMult,Input.GetAxis("Vertical")*MouseMult,Input.GetAxis("Mouse ScrollWheel")/10);
-			mHeadPosition = VRHead.position;
+			VRHead.Translate(-Input.GetAxis("Horizontal")*MouseMult,Input.GetAxis("Vertical")*MouseMult,-Input.GetAxis("Mouse ScrollWheel")/40);
+			//mHeadPosition = VRHead.position;
 		}
 
 //#if UNITY_Wii
@@ -57,7 +57,7 @@ public class Z_TrackInput : MonoBehaviour {
 							);
 			//then set head location to calculated position from IR points
 			VRHead.localPosition = HeadXYZFrom2Points(IR1,IR2);
-			mHeadPosition = HeadXYZFrom2Points(IR1,IR2);
+			//mHeadPosition = HeadXYZFrom2Points(IR1,IR2);
 		}
 
 //#endif

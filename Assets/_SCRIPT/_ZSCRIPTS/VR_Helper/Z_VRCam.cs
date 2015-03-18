@@ -4,19 +4,19 @@ using System.Collections;
 public class Z_VRCam : MonoBehaviour {
 
 	public Camera HeadCam;
-	public float near = .5f;
+	public float near = .05f;
 	public float far = 100;
 	public float screenResHeight;
 	public float screenResWidth;
-	public float screenAspect;
+	private float screenAspect;
 	public float mHeadX;
 	public float mHeadY;
 	public float mHeadDist;
-	public Vector3 mHeadPos;
+	private Vector3 mHeadPos;
 	public Transform VRHead;
-	public float offsetY = 0;
-	public float offsetX = 0;
-	public float offsetZ = 0;
+	private float offsetY = 0;
+	private float offsetX = 0;
+	private float offsetZ = 0;
 
 
 
@@ -42,8 +42,8 @@ public class Z_VRCam : MonoBehaviour {
 	public void MatrixFOV(){
 		HeadCam.ResetProjectionMatrix();
 		Matrix4x4 m = PerspectiveOffCenter (//original values
-		                                    near*(-.5f * screenAspect + mHeadX + offsetX)/(mHeadDist),//left,  
-		                                    near*(.5f * screenAspect + mHeadX + offsetX)/(mHeadDist),//right
+		                                    near*(-.5f * screenAspect + mHeadX)/(mHeadDist),//left,  
+		                                    near*(.5f * screenAspect + mHeadX)/(mHeadDist),//right
 		                                    near*(-.5f - mHeadY + offsetY )/(mHeadDist),//bottom
 		                                    near*(.5f - mHeadY + offsetY )/(mHeadDist),//top
 		                                    near,//near
