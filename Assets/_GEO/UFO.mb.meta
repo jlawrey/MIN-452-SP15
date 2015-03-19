@@ -14,6 +14,7 @@ ModelImporter:
     100016: pSphere5
     100018: pSphere6
     100020: //RootNode
+    100022: UFO_GRP
     400000: pCylinder1
     400002: pCylinder2
     400004: pCylinder3
@@ -25,6 +26,7 @@ ModelImporter:
     400016: pSphere5
     400018: pSphere6
     400020: //RootNode
+    400022: UFO_GRP
     2300000: pCylinder1
     2300002: pCylinder2
     2300004: pCylinder3

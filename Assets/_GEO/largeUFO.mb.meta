@@ -27,6 +27,7 @@ ModelImporter:
     100042: pSphere7
     100044: pSphere8
     100046: pSphere9
+    100048: UFO_Large_GRP
     400000: directionalLight1
     400002: group1
     400004: group2
@@ -51,6 +52,7 @@ ModelImporter:
     400042: pSphere7
     400044: pSphere8
     400046: pSphere9
+    400048: UFO_Large_GRP
     2300000: pCone1
     2300002: pCone2
     2300004: pCone3
