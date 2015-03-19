@@ -17,6 +17,8 @@ ModelImporter:
     7400000: Take 001
     7400002: Swing 1
     7400004: Idle
+    7400006: Swing 2
+    7400008: Swing 3
     9500000: //RootNode
     11100000: //RootNode
     13700000: pCube2
@@ -144,10 +146,82 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Swing 2
+      takeName: Take 001
+      firstFrame: 24
+      lastFrame: 47
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hammer_base
+        weight: 1
+      - path: hammer_base/hamer_end
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: pCube2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Swing 3
+      takeName: Take 001
+      firstFrame: 48
+      lastFrame: 71
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hammer_base
+        weight: 1
+      - path: hammer_base/hamer_end
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: pCube2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0500000007
+    globalScale: .0799999982
     meshCompression: 0
     addColliders: 1
     importBlendShapes: 1
