@@ -162,7 +162,7 @@ ModelImporter:
       name: Shield In
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 14
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -227,8 +227,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Shield Out
       takeName: Take 001
-      firstFrame: 14
-      lastFrame: 25
+      firstFrame: 11
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

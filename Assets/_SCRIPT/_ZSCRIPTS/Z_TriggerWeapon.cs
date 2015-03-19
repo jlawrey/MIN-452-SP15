@@ -14,7 +14,12 @@ public class Z_TriggerWeapon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		Action ();
+	}
 
+	void Action(){
+
+		//bool ShieldClosed;
 		if (Input.GetKeyDown ("1")) {
 			anim.SetTrigger ("Swing 1");
 		}
@@ -23,6 +28,12 @@ public class Z_TriggerWeapon : MonoBehaviour {
 		}
 		if(Input.GetKeyDown("3")){
 			anim.SetTrigger("Swing 3");
+		}
+		if(Input.GetKeyDown("space")){
+			anim.SetTrigger ("Close Shield");
+		}
+		if(Input.GetKeyUp("space")){
+			anim.SetTrigger ("Open Shield");
 		}
 	}
 }
