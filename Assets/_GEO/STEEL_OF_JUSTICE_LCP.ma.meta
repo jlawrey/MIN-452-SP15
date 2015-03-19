@@ -23,6 +23,12 @@ ModelImporter:
     100034: transform6
     100036: transform7
     100038: transform8
+    100040: pCylinder8
+    100042: place3dTexture1
+    100044: place3dTexture2
+    100046: transform10
+    100048: transform11
+    100050: transform9
     400000: pCube1
     400002: pCube2
     400004: pCube3
@@ -43,15 +49,24 @@ ModelImporter:
     400034: transform6
     400036: transform7
     400038: transform8
+    400040: pCylinder8
+    400042: place3dTexture1
+    400044: place3dTexture2
+    400046: transform10
+    400048: transform11
+    400050: transform9
     2300000: pCube3
     2300002: pCylinder6
     2300004: pCylinder7
+    2300006: pCylinder8
     3300000: pCube3
     3300002: pCylinder6
     3300004: pCylinder7
+    3300006: pCylinder8
     4300000: pCylinder6
     4300002: pCylinder7
     4300004: pCube3
+    4300006: pCylinder8
     9500000: //RootNode
   materials:
     importMaterials: 1
