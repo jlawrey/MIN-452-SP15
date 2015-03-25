@@ -60,7 +60,8 @@ ModelImporter:
     7400000: Take 001
     7400002: Shield In
     7400004: Shield Out
-    7400006: Still
+    7400006: Still Outside
+    7400008: Still Inside
     9500000: //RootNode
     13700000: pCube1
     13700002: pSphere1
@@ -291,10 +292,76 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Still
+      name: Still Outside
       takeName: Take 001
       firstFrame: 0
       lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Heater_Base1
+        weight: 1
+      - path: Heater_Base1/Heater_Base
+        weight: 1
+      - path: Heater_Base1/Heater_Base/Heater_End
+        weight: 1
+      - path: Heater_GRP
+        weight: 1
+      - path: Heater_GRP/pCube1
+        weight: 1
+      - path: Heater_GRP/pSphere1
+        weight: 1
+      - path: Heater_GRP/pSphere2
+        weight: 1
+      - path: Heater_GRP/pSphere3
+        weight: 1
+      - path: Heater_GRP/pSphere4
+        weight: 1
+      - path: Heater_GRP/pSphere5
+        weight: 1
+      - path: Heater_GRP/pSphere6
+        weight: 1
+      - path: Heater_GRP/pSphere7
+        weight: 1
+      - path: Heater_GRP/pSphere8
+        weight: 1
+      - path: Heater_GRP/pSphere9
+        weight: 1
+      - path: Heater_GRP/pSphere10
+        weight: 1
+      - path: Heater_GRP/pSphere11
+        weight: 1
+      - path: Heater_GRP/pSphere12
+        weight: 1
+      - path: Heater_GRP/pSphere13
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Still Inside
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 10.1000004
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
