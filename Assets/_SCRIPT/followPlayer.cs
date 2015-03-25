@@ -6,7 +6,7 @@ public class followPlayer : MonoBehaviour {
 	private float flyHeight = 1.5f;
 	private float yBoost = 20f;
 	private float moveForce = 50f;
-	private float maxSpeed = .75f;
+	private float maxSpeed = .2f;
 	private float orbitSpeed = 1f;
 	private float orbitCorrect = 5f;
 	private GameObject player;
