@@ -13,7 +13,7 @@ public class AlienDeath : MonoBehaviour {
 	void OnCollisionEnter(Collision c)
 	{
 	
-		if (c.gameObject.CompareTag("Weapon"))
+		if (c.gameObject.tag == "Weapon")
 		{
 		
 			explode ();
@@ -26,14 +26,18 @@ public class AlienDeath : MonoBehaviour {
 	{
 		if(target.tag == "Player")
 		{
-			didHitPlayer ();
+			StartCoroutine( didHitPlayer () );
 		}
 			
 
 	}
 
-	void didHitPlayer()
+	public IEnumerator didHitPlayer()
 	{
+
+		Wii.SetRumble (1, true);
+		yield return new WaitForSeconds(.5f);
+		Wii.SetRumble (1, false);
 		Destroy (gameObject);
 	}
 
