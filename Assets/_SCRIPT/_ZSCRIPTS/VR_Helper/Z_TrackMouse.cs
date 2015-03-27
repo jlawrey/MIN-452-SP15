@@ -6,6 +6,7 @@ public class Z_TrackMouse : MonoBehaviour {
 	
 	public Transform VRHead;
 	public float MouseMult = .001f;
+	public bool mouseActive;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +16,9 @@ public class Z_TrackMouse : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-
-		VRHead.Translate(-Input.GetAxis("Horizontal")*MouseMult,Input.GetAxis("Vertical")*MouseMult,0);
+		if(Input.GetMouseButton(0) && mouseActive){
+			VRHead.Translate(-Input.GetAxis("Mouse X")*MouseMult,Input.GetAxis("Mouse Y")*MouseMult,0);
+		}
 		if(VRHead.position.z <= -0.3f){
 			VRHead.Translate(0,0,Input.GetAxis("Mouse ScrollWheel")/40);
 		}
