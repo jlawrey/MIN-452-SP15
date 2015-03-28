@@ -4,6 +4,7 @@ using System.Collections;
 public class Z_TriggerWeapon : MonoBehaviour {
 	public Animator anim;
 	private AnimatorStateInfo anim_info;
+	public AudioClip[] weaponSounds = new AudioClip[10];
 
 	// Use this for initialization
 	void Start () {
