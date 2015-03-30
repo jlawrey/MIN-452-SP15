@@ -5,6 +5,7 @@ public class AlienDeath : MonoBehaviour {
 
 	public GameObject deathParticle;
 	private float upShift = 2f;
+	public AudioClip[] deathSounds;
 	// Use this for initialization
 	void Start () {
 	
@@ -17,6 +18,7 @@ public class AlienDeath : MonoBehaviour {
 		{
 		
 			explode ();
+			audio.PlayOneShot(deathSounds[0]);
 		
 		}
 		

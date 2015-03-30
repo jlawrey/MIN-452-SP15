@@ -6,7 +6,7 @@ public class Z_TrackInput : MonoBehaviour {
 
 	public Transform VRHead;
 	public float MouseMult = .001f;
-	public enum InputMethod {Mouse,Wii,Face};
+	public enum InputMethod {Mouse,Wii,Face,Kinect};
 	public InputMethod HeadInput;
 	
 	//WiiMote global variables
