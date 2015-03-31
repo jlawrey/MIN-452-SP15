@@ -16,10 +16,11 @@ public class AlienDeath : MonoBehaviour {
 	
 		if (c.gameObject.tag == "Weapon")
 		{
-		
 			explode ();
 			audio.PlayOneShot(deathSounds[0]);
-		
+		}
+		if (c.gameObject.tag == "Shield") {
+			audio.PlayOneShot(deathSounds[1]);
 		}
 		
 	}
@@ -37,9 +38,9 @@ public class AlienDeath : MonoBehaviour {
 	public IEnumerator didHitPlayer()
 	{
 
-		Wii.SetRumble (1, true);
-		yield return new WaitForSeconds(.5f);
-		Wii.SetRumble (1, false);
+		//Wii.SetRumble (1, true);
+		yield return new WaitForSeconds(.1f);
+		//Wii.SetRumble (1, false);
 		Destroy (gameObject);
 	}
 

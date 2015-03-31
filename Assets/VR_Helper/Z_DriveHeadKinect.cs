@@ -8,9 +8,11 @@ public class Z_DriveHeadKinect : MonoBehaviour {
 	public bool kinectActive;
 	public bool invert;
 	private int flip;
+	private float offsetZ;
 	// Use this for initialization
 	void Start () {
 
+		offsetZ = kinectInput.position.z;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +24,7 @@ public class Z_DriveHeadKinect : MonoBehaviour {
 			flip = 1;
 	}
 	if(kinectActive){
-		newpos = new Vector3 (kinectInput.position.x * flip, kinectInput.position.y , kinectInput.position.z);
+		newpos = new Vector3 (kinectInput.position.x * flip, kinectInput.position.y , kinectInput.position.z + offsetZ);
 		vrHeadOutput.position = newpos;
 	}
 
