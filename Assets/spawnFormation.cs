@@ -50,6 +50,7 @@ public class spawnFormation : MonoBehaviour {
 				foreach (Transform child in children)
 				{
 					GameObject newAlien = Instantiate(alien, child.position, child.rotation) as GameObject;
+					newAlien.GetComponent<lookAt>().target = player.transform;
 					newAlien.transform.parent = child;
 					if( newAlien.transform.parent == newFormation.transform)
 						Destroy(newAlien);
