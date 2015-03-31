@@ -20,27 +20,25 @@ public class followPlayer : MonoBehaviour {
 	{
 
 
-
-		if (transform.InverseTransformDirection(rigidbody.velocity).z < maxSpeed)
-			rigidbody.AddRelativeForce(new Vector3(0,0,moveForce));
+		if (transform.parent == null) {
+			Debug.Log("NO PARENTS!!");
+			if (transform.InverseTransformDirection (rigidbody.velocity).z < maxSpeed)
+				rigidbody.AddRelativeForce (new Vector3 (0, 0, moveForce));
 		
-		if (transform.InverseTransformDirection(rigidbody.velocity).x > orbitSpeed )
-		{
+			if (transform.InverseTransformDirection (rigidbody.velocity).x > orbitSpeed) {
 
-			rigidbody.AddRelativeForce(-orbitCorrect,0,0);
+				rigidbody.AddRelativeForce (-orbitCorrect, 0, 0);
+			}
+			if (transform.InverseTransformDirection (rigidbody.velocity).x < -orbitSpeed) {
+
+				rigidbody.AddRelativeForce (orbitCorrect, 0, 0);
+			}
+
+			/*if (Vector3.Distance (transform.position, player.transform.position) < 2f) {
+				transform.position = player.transform.position;
+
+			}*/
 		}
-		if (transform.InverseTransformDirection(rigidbody.velocity).x < -orbitSpeed )
-		{
-
-			rigidbody.AddRelativeForce(orbitCorrect,0,0);
-		}
-
-		if (Vector3.Distance(transform.position, player.transform.position) < 2f )
-		{
-			transform.position = player.transform.position;
-
-		}
-
 		
 	}	
 	

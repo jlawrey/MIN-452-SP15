@@ -14,9 +14,18 @@ public class moveFormation : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		if (Vector3.Distance (transform.position, player.position) > 2)
+		if (Vector3.Distance (transform.position, player.position) > 2) 
 		{
-			transform.Translate(0,0,speed);
+			transform.Translate (0, 0, speed);
+		} 
+		else 
+		{
+			foreach (Transform child in transform)
+			{
+				child.DetachChildren();
+				Destroy(child.gameObject);
+			}
+			Destroy(gameObject);
 		}
 	
 	}
