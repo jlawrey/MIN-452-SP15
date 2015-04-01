@@ -27,7 +27,7 @@ public class AlienDeath : MonoBehaviour {
 
 	void OnTriggerEnter(Collider target)
 	{
-		if(target.tag == "Player")
+		if(target.tag == "Player" || target.tag == "Miss")
 		{
 			StartCoroutine( didHitPlayer () );
 		}
@@ -39,7 +39,7 @@ public class AlienDeath : MonoBehaviour {
 	{
 
 		//Wii.SetRumble (1, true);
-		yield return new WaitForSeconds(.1f);
+		yield return new WaitForSeconds(.5f);
 		//Wii.SetRumble (1, false);
 		Destroy (gameObject);
 	}
