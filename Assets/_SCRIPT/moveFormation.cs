@@ -3,8 +3,8 @@ using System.Collections;
 
 public class moveFormation : MonoBehaviour {
 
-	private float distance = 10f;
-	private float interval = 2f;
+	private float distance = 7f;
+	private float interval = Random.Range(2f,5f);
 	private Transform player;
 	private float speed = 0.04f;
 	private bool goRight = true;
@@ -26,11 +26,12 @@ public class moveFormation : MonoBehaviour {
 			if (transform.position.x  <  player.position.x - interval)
 			{ goRight = true;}
 
+			float lateralSpeed = Random.Range (0f,0.1f);
 			if(goRight ){
 
-				transform.Translate(.02f,0,0,Space.World);
+				transform.Translate(lateralSpeed,0,0,Space.World);
 			}else  {
-				transform.Translate(-.02f,0,0,Space.World);
+				transform.Translate(-lateralSpeed,0,0,Space.World);
 			}
 
 		}
