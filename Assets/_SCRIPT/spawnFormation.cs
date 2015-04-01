@@ -31,7 +31,7 @@ public class spawnFormation : MonoBehaviour {
 			formations.Add(rankFormObj);
 		if (collumnFormation)
 			formations.Add(collumnFormObj);
-		spawnTimer = 0;
+		spawnTimer = 1;
 
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}

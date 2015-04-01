@@ -3,7 +3,7 @@ using System.Collections;
 
 public class moveFormation : MonoBehaviour {
 
-	private float distance = 10f;
+	private float distance = 8f;
 	private float interval = Random.Range(2f,5f);
 	private Transform player;
 	private float speed = 0.04f;
