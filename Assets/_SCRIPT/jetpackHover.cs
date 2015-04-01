@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class jetpackHover : MonoBehaviour {
-	private float flyHeight = 0.5f;
-	private float yBoost = 10f;
+	private float flyHeight = 3.5f;
+	private float yBoost = 15f;
 
 	// Use this for initialization
 	void Start () {

@@ -4,7 +4,7 @@ using System.Collections;
 public class followPlayer : MonoBehaviour {
 	
 
-
+	private float force = 100f;
 	private float moveForce = 50f;
 	private float maxSpeed = .2f;
 	private float orbitSpeed = 1f;
@@ -21,7 +21,9 @@ public class followPlayer : MonoBehaviour {
 
 
 		if (transform.parent == null) {
-			Debug.Log("NO PARENTS!!");
+
+
+
 			if (transform.InverseTransformDirection (rigidbody.velocity).z < maxSpeed)
 				rigidbody.AddRelativeForce (new Vector3 (0, 0, moveForce));
 		
@@ -41,5 +43,16 @@ public class followPlayer : MonoBehaviour {
 		}
 		
 	}	
+
+/*public IEnumerator Attack(){
+		
+		float waittime = Random.Range (1, 18.5f);
+		yield return new WaitForSeconds (waittime);
+		//isAttacking = true;
+		//print (waittime + " ATTACK!!!");
+		gameObject.rigidbody.AddRelativeForce (0, 0, force);
+		gameObject.rigidbody.AddRelativeTorque (force/4,0,0);
+		
+	}*/
 	
 }
