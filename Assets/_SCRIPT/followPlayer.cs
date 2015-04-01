@@ -5,8 +5,8 @@ public class followPlayer : MonoBehaviour {
 	
 
 	private float force = 100f;
-	private float moveForce = 50f;
-	private float maxSpeed = .2f;
+	private float moveForce = 500f;
+	private float maxSpeed = .5f;
 	private float orbitSpeed = 1f;
 	private float orbitCorrect = 5f;
 	private GameObject player;
@@ -22,7 +22,8 @@ public class followPlayer : MonoBehaviour {
 
 		if (transform.parent == null) {
 
-
+			if (transform.localRotation.x < 50)
+			rigidbody.AddRelativeTorque(0.1f,0,0);
 
 			if (transform.InverseTransformDirection (rigidbody.velocity).z < maxSpeed)
 				rigidbody.AddRelativeForce (new Vector3 (0, 0, moveForce));

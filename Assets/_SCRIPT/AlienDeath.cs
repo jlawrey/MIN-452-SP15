@@ -46,6 +46,7 @@ public class AlienDeath : MonoBehaviour {
 
 	IEnumerator explode()
 	{
+
 		audio.PlayOneShot(deathSounds[0]);
 		Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y+ upShift,transform.position.z);
 		deathParticle = Instantiate(deathParticle, particlePosition, transform.rotation) as GameObject;
