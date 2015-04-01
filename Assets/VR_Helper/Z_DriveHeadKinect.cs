@@ -9,6 +9,7 @@ public class Z_DriveHeadKinect : MonoBehaviour {
 	public bool invert;
 	private int flip;
 	private float offsetZ;
+	public float GlobalDistanceDiv = 1;
 	// Use this for initialization
 	void Start () {
 
@@ -24,7 +25,7 @@ public class Z_DriveHeadKinect : MonoBehaviour {
 			flip = 1;
 	}
 	if(kinectActive){
-		newpos = new Vector3 (kinectInput.position.x * flip, kinectInput.position.y , kinectInput.position.z + offsetZ);
+		newpos = new Vector3 (kinectInput.position.x/GlobalDistanceDiv * flip, kinectInput.position.y/GlobalDistanceDiv , (kinectInput.position.z + offsetZ)/GlobalDistanceDiv);
 		vrHeadOutput.position = newpos;
 	}
 
