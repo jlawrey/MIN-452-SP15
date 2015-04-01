@@ -13,11 +13,11 @@ public class AlienDeath : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision c)
 	{
-	
+		print (c.gameObject.name);
 		if (c.gameObject.tag == "Weapon")
 		{
-			explode ();
-			audio.PlayOneShot(deathSounds[0]);
+			StartCoroutine(explode ());
+
 		}
 		if (c.gameObject.tag == "Shield") {
 			audio.PlayOneShot(deathSounds[1]);
@@ -44,12 +44,13 @@ public class AlienDeath : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	void explode()
+	IEnumerator explode()
 	{
+		audio.PlayOneShot(deathSounds[0]);
 		Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y+ upShift,transform.position.z);
 		deathParticle = Instantiate(deathParticle, particlePosition, transform.rotation) as GameObject;
-		//deathParticle.rigidbody.velocity = rigidbody.velocity;
 		Destroy(deathParticle, 1);
+		yield return new WaitForSeconds (deathSounds [0].length);
 		Destroy(gameObject);
 
 	}
