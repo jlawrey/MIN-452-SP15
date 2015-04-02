@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Z_TrackInput : MonoBehaviour {
 
+	public Transform kinectInput;//the input node of the kinect head tracking object
+	public float GlobalDistanceDiv = 1.0f;
+	private float offsetZ;
+	public float offset;
 
 	public Transform VRHead;
 	public float MouseMult = .001f;
@@ -26,18 +30,20 @@ public class Z_TrackInput : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-	
+
+		offsetZ = kinectInput.position.z;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-		if (Input.GetMouseButton(0) && HeadInput == InputMethod.Mouse && VRHead.position.z < 0) {
+		// Mouse Movement Tracking
+		if (HeadInput == InputMethod.Mouse && Input.GetMouseButton(0)  && VRHead.position.z < 0) {
 			VRHead.Translate(-Input.GetAxis("Horizontal")*MouseMult,Input.GetAxis("Vertical")*MouseMult,-Input.GetAxis("Mouse ScrollWheel")/40);
 			//mHeadPosition = VRHead.position;
 		}
-
-//#if UNITY_Wii
+		//Wii Head Tracking
 		if (HeadInput == InputMethod.Wii && Wii.IsActive(0)){//if we are using 2-point WiiMote IR tracking
 
 			//first get the pixel values from the WiiMote IR cam and de-normalize and flip them (so that they are using the actual pixel values from the camera)
@@ -59,8 +65,14 @@ public class Z_TrackInput : MonoBehaviour {
 			VRHead.localPosition = HeadXYZFrom2Points(IR1,IR2);
 			//mHeadPosition = HeadXYZFrom2Points(IR1,IR2);
 		}
+		//Kinect Head Tracking
+		if (HeadInput == InputMethod.Kinect) {
 
-//#endif
+			Vector3 newpos = new Vector3 (kinectInput.position.x/GlobalDistanceDiv * -1, kinectInput.position.y/GlobalDistanceDiv , ((kinectInput.position.z)/GlobalDistanceDiv) + (offsetZ + offset));
+			VRHead.position = newpos;
+		}
+
+
 	}
 	public Vector3 HeadXYZFrom2Points(Vector2 firstPoint, Vector2 secondPoint){
 
