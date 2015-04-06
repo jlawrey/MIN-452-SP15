@@ -32,7 +32,7 @@ public class Z_alien_AI_01 : MonoBehaviour {
 		//sets up the floating Y values
 		float floatY = (Mathf.Sin (Time.frameCount * y_freq) * random_seed) + y_offset;
 		//moves the char left and right on the X-axis
-		if(floater.transform.position.x < 2){
+		if(floater.transform.position.x < .6){
 			floater.transform.Translate(.01f,0,0,Space.World);
 		}else{
 			floater.transform.Translate(-.01f,0,0,Space.World);
@@ -52,7 +52,7 @@ public class Z_alien_AI_01 : MonoBehaviour {
 		isAttacking = true;
 		print (waittime + " ATTACK!!!");
 		floater.gameObject.rigidbody.AddRelativeForce (0, 0, force);
-		floater.gameObject.rigidbody.AddRelativeTorque (force/4,0,0);
+		floater.gameObject.rigidbody.AddRelativeTorque (force/2,0,0);
 
 	}
 

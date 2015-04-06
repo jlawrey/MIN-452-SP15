@@ -5,7 +5,7 @@ public class Z_VRCam : MonoBehaviour {
 
 	public Camera HeadCam;
 	private float near = .05f;
-	private float far = 100;
+	private float far = 1000;
 	public float screenResHeight;
 	public float screenResWidth;
 	private float screenAspect;
