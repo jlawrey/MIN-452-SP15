@@ -4,8 +4,8 @@ using System.Collections;
 public class followPlayer : MonoBehaviour {
 	
 
-	private float force = 100f;
-	private float moveForce = 500f;
+	private float force = 1000f;
+	private float moveForce = 900f;
 	private float maxSpeed = .5f;
 	private float orbitSpeed = 1f;
 	private float orbitCorrect = 5f;
@@ -13,8 +13,10 @@ public class followPlayer : MonoBehaviour {
 	private float waitTime;
 	// Use this for initialization
 	void Start () {
+
 		player = GameObject.FindGameObjectWithTag("Player");
 		waitTime = Random.Range (0, 1f);
+		StartCoroutine (Attack ());
 	}
 	
 	// Update is called once per frame
@@ -29,8 +31,8 @@ public class followPlayer : MonoBehaviour {
 
 			
 
-			if (transform.InverseTransformDirection (rigidbody.velocity).z < maxSpeed)
-				rigidbody.AddRelativeForce (new Vector3 (0, 0, moveForce));
+//			if (transform.InverseTransformDirection (rigidbody.velocity).z < maxSpeed)
+//				rigidbody.AddRelativeForce (new Vector3 (0, 0, moveForce));
 		
 			if (transform.InverseTransformDirection (rigidbody.velocity).x > orbitSpeed) {
 
@@ -49,15 +51,13 @@ public class followPlayer : MonoBehaviour {
 		
 	}	
 
-/*public IEnumerator Attack(){
+public IEnumerator Attack(){
 		
 		float waittime = Random.Range (1, 18.5f);
 		yield return new WaitForSeconds (waittime);
-		//isAttacking = true;
-		//print (waittime + " ATTACK!!!");
 		gameObject.rigidbody.AddRelativeForce (0, 0, force);
 		gameObject.rigidbody.AddRelativeTorque (force/4,0,0);
 		
-	}*/
+	}
 	
 }
