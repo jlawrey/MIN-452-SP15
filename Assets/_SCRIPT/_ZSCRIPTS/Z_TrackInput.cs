@@ -68,7 +68,7 @@ public class Z_TrackInput : MonoBehaviour {
 		//Kinect Head Tracking
 		if (HeadInput == InputMethod.Kinect) {
 
-			Vector3 newpos = new Vector3 (kinectInput.position.x/GlobalDistanceDiv * -1, kinectInput.position.y/GlobalDistanceDiv , ((kinectInput.position.z)/GlobalDistanceDiv) + (offsetZ + offset));
+			Vector3 newpos = new Vector3 (kinectInput.position.x/GlobalDistanceDiv * -1, kinectInput.position.y/GlobalDistanceDiv , ((kinectInput.position.z)/GlobalDistanceDiv) + (offset + offsetZ));
 			VRHead.position = newpos;
 		}
 
