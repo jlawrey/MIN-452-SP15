@@ -6,12 +6,18 @@ public class Z_Score : MonoBehaviour {
 	public static int score = 0;
 	public static int death = 0;
 	public static GameObject scoretick;
+	static public GameObject[] weapons;
 
 
 	// Use this for initialization
 	void Start () {
 
 		scoretick = GameObject.FindGameObjectWithTag ("scoretick");
+		weapons = GameObject.FindGameObjectsWithTag ("Weapon");
+		foreach (GameObject weapon in weapons) {
+			weapon.SetActive(false);
+		}
+		weapons [1].SetActive (true);
 	
 	}
 	
@@ -22,11 +28,16 @@ public class Z_Score : MonoBehaviour {
 
 	public static void AddScore(){
 
+		if (score >= 3) {
+			weapons[1].SetActive(false);
+			weapons[0].SetActive(true);
+		}
 		score += 1;
 		print ("score " + score);
 		Vector3 flat = new Vector3(score*.04f,0,0);
 		GameObject scoreguy = Resources.Load<GameObject> ("Score");
 		Instantiate (scoreguy, flat, Quaternion.identity);
+
 
 	}
 	public static void AddDeath(){
