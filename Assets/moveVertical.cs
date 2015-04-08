@@ -6,7 +6,8 @@ public class moveVertical : MonoBehaviour {
 
 	bool goUp = false;
 	Transform player ;
-	float interval = 4;
+	float bottom = 2;
+	float top = 8;
 	float verticalSpeed = 0.05f;
 
 	// Use this for initialization
@@ -19,9 +20,9 @@ public class moveVertical : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		if (transform.position.y  >  player.position.y + interval)
+		if (transform.position.y  >  player.position.y + top)
 		{ goUp = false;}
-		if (transform.position.y  <  player.position.y - interval)
+		if (transform.position.y  <  player.position.y -  bottom)
 		{ goUp = true;}
 		
 		

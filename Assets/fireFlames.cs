@@ -5,9 +5,14 @@ public class fireFlames : MonoBehaviour {
 
 	float fireRate = 8;
 	float fireTimer;
-	float waittime = 3f;
+	float fireDuration = 5f;
 	public GameObject flame;
 	ParticleRenderer[] renderers;
+
+	float startRotate;
+	float endRotate;
+	bool isFiring = false;
+
 	// Use this for initialization
 	void Start () {
 		fireTimer = 3;
@@ -17,41 +22,57 @@ public class fireFlames : MonoBehaviour {
 		}
 
 		transform.LookAt (GameObject.FindGameObjectWithTag("Player").transform);
-
+		startRotate = transform.rotation.x;
+		endRotate = transform.rotation.x - 90;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		fireTimer -= Time.deltaTime;
-		if (fireTimer <= 0)
+		if (fireTimer <= 0 )
 		{
-			StartCoroutine("fireFlamethrower");
-			Quaternion newRotation = Quaternion.AngleAxis(90, Vector3.up);
+			if(transform.rotation.x > endRotate)
+			{
+				Quaternion newRotation = Quaternion.AngleAxis(90, -Vector3.left);
+				transform.rotation= Quaternion.Slerp(transform.rotation, newRotation, .05f);  
+			}
+
+
+			if(!isFiring)
+			{
+				StartCoroutine("fireFlamethrower");
+
+			}
+
+
+		}
+
+		if (!isFiring & transform.rotation.x > startRotate) {
+
+			Quaternion newRotation = Quaternion.AngleAxis(-90, -Vector3.left);
 			transform.rotation= Quaternion.Slerp(transform.rotation, newRotation, .05f);  
-			fireTimer = fireRate;
-
-
-
 		}
 	
 	}
 
 	public IEnumerator fireFlamethrower()
 	{
-		transform.Rotate(-90,0,0);
+	
+		isFiring = true;
 
 
 		for (int i= 0; i < renderers.Length; i++) {
 			renderers [i].enabled = true;
 		}
 
-		yield return new WaitForSeconds (waittime);
+		yield return new WaitForSeconds (fireDuration);
 
 		for (int i= 0; i < renderers.Length; i++) {
 			renderers [i].enabled = false;
 		}
+		fireTimer = fireRate;
+		isFiring = false;
 
-		transform.Rotate(90,0,0);
 	}
 
 
