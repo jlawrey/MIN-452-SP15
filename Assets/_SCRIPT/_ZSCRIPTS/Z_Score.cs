@@ -24,7 +24,7 @@ public class Z_Score : MonoBehaviour {
 
 		score += 1;
 		print ("score " + score);
-		Vector3 flat = new Vector3(score*.07f,0,0);
+		Vector3 flat = new Vector3(score*.04f,0,0);
 		GameObject scoreguy = Resources.Load<GameObject> ("Score");
 		Instantiate (scoreguy, flat, Quaternion.identity);
 
