@@ -17,6 +17,7 @@ public class AlienDeath : MonoBehaviour {
 		if (c.gameObject.tag == "Weapon")
 		{
 			StartCoroutine(explode ());
+			Z_Score.AddScore();
 
 		}
 		if (c.gameObject.tag == "Shield") {

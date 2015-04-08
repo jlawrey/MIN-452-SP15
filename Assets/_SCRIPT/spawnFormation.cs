@@ -44,12 +44,12 @@ public class spawnFormation : MonoBehaviour {
 		{
 			if (spawnTimer <= 0)
 			{
-				GameObject newFormation = Instantiate(formations[ Random.Range(0,formations.Count) ], transform.position, transform.rotation) as GameObject;
+				GameObject newFormation = Instantiate(formations[ Random.Range(0,formations.Count) ], transform.position, Quaternion.identity) as GameObject;
 				newFormation.GetComponent<lookAt>().target = player.transform;
 				Transform[] children = newFormation.GetComponentsInChildren<Transform>();
 				foreach (Transform child in children)
 				{
-					GameObject newAlien = Instantiate(alien, child.position, child.rotation) as GameObject;
+					GameObject newAlien = Instantiate(alien, child.position, Quaternion.identity) as GameObject;
 					newAlien.GetComponent<lookAt>().target = player.transform;
 					newAlien.transform.parent = child;
 					if( newAlien.transform.parent == newFormation.transform)

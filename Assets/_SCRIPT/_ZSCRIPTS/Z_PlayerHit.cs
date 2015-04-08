@@ -23,6 +23,8 @@ public class Z_PlayerHit : MonoBehaviour {
 	}
 
 	IEnumerator PlayerHit(){
+
+		Z_Score.AddDeath ();
 		phit.gameObject.SetActive (true);
 		audio.PlayOneShot (playerSounds[0]);
 		yield return new WaitForSeconds(.5f);
