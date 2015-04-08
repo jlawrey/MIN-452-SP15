@@ -3,16 +3,16 @@ using System.Collections;
 
 public class MoveHorizontal : MonoBehaviour {
 
-	float speed= 2f;
+
 	bool goRight = false;
 	Transform player ;
-	float interval = 4;
-	float lateralSpeed;
+	float interval = 6;
+	float lateralSpeed = 0.05f;
 	// Use this for initialization
 	void Start () {
 
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
-		lateralSpeed = Random.Range (0f,0.1f);
+
 	}
 	
 	// Update is called once per frame
