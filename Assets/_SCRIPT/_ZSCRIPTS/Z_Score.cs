@@ -13,7 +13,7 @@ public class Z_Score : MonoBehaviour {
 	void Start () {
 
 		scoretick = GameObject.FindGameObjectWithTag ("scoretick");
-		weapons = GameObject.FindGameObjectsWithTag ("Weapon");
+		weapons = GameObject.FindGameObjectsWithTag ("WeaponOption");
 		foreach (GameObject weapon in weapons) {
 			weapon.SetActive(false);
 		}
