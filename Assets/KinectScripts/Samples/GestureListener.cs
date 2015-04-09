@@ -4,6 +4,19 @@ using System;
 
 public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInterface
 {
+
+
+	void Start(){
+
+		UserDetected(1,0);
+
+
+	}
+
+	void Update(){
+
+
+	}
 	// GUI Text to display the gesture messages. load object
 	public GUIText GestureInfo;
 	
@@ -86,4 +99,5 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 		return true;
 	}
 	
+
 }

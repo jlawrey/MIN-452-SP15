@@ -34,8 +34,8 @@ public class Z_Score : MonoBehaviour {
 		}
 		score += 1;
 		print ("score " + score);
-		Vector3 flat = new Vector3(score*.04f,0,0);
 		GameObject scoreguy = Resources.Load<GameObject> ("Score");
+		Vector3 flat = new Vector3(scoreguy.transform.position.x +(score*.04f),scoreguy.transform.position.y,scoreguy.transform.position.z);
 		Instantiate (scoreguy, flat, Quaternion.identity);
 
 
@@ -44,10 +44,10 @@ public class Z_Score : MonoBehaviour {
 		
 		death += 1;
 		print ("death " + death);
-		Vector3 flat = new Vector3(death*.07f,0,0);
 		GameObject deathguy = Resources.Load<GameObject> ("Death");
+		Vector3 flat = new Vector3(deathguy.transform.position.x + (death*.07f),deathguy.transform.position.y,deathguy.transform.position.z);
 		Instantiate (deathguy, flat, Quaternion.identity);
-		if (death > 5) {
+		if (death > 9) {
 
 			Application.LoadLevel(1);
 
