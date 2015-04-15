@@ -46,7 +46,8 @@ public class ShipFireLaser : MonoBehaviour {
 	void FireShot()
 	{
 		//Instantiate shot
-		GameObject nextShot = Instantiate(laser, transform.position, transform.rotation) as GameObject;
+		Vector3 createPos = new Vector3 (transform.position.x,transform.position.y,transform.position.z - 2);
+		GameObject nextShot = Instantiate(laser, createPos, transform.rotation) as GameObject;
 		//Point it at the player, its own script handles movement
 		nextShot.transform.LookAt(player.transform);
 	}

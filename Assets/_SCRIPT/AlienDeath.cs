@@ -38,7 +38,11 @@ public class AlienDeath : MonoBehaviour {
 		{
 			StartCoroutine( didHitPlayer () );
 		}
-			
+
+		if (target.tag == "Fireball")
+		{
+			StartCoroutine(explode ());
+		}
 
 	}
 

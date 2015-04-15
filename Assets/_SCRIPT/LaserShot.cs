@@ -1,24 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LaserShot : MonoBehaviour {
+public class LaserShot : MonoBehaviour 
+{
 	
-	public int damage = 1;
-	public float lifespan = 1f;
-	public float speed = 3;
+	 int damage = 1;
+	 float lifespan = 5f;
+	 float force = 700;
 	
 	
 	// Use this for initialization
 	void Start () 
 	{
-	
+		rigidbody.AddRelativeForce (0, 0, force);
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		lifespan -= Time.deltaTime;
-		transform.Translate(new Vector3(0,0,speed));
+
 		
 		if (lifespan <= 0)
 		{
@@ -26,10 +27,13 @@ public class LaserShot : MonoBehaviour {
 		}
 	}
 	
-	/*void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider target)
 	{
-		Debug.Log("hit");
-		Destroy(gameObject);
-	}*/
+
+		if (target.tag != "Player" && target.tag != "Miss") {
+
+			rigidbody.velocity = new Vector3 (-rigidbody.velocity.x, -rigidbody.velocity.y, -rigidbody.velocity.z);
+		}
+	}
 	
 }
