@@ -3,14 +3,21 @@ using System.Collections;
 
 public class fireballDestruction : MonoBehaviour {
 
+	private float lifespan = 5f;
+
 	// Use this for initialization
 	void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void FixedUpdate () {
+	lifespan -= Time.deltaTime;
+	if (lifespan <= 0) {
+			Destroy(gameObject);
+		}
+
+
 	}
 
 	void OnTriggerEnter(Collider target)
