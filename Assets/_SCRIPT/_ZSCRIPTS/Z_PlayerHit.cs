@@ -17,7 +17,7 @@ public class Z_PlayerHit : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider thing){
-		if (thing.gameObject.tag == "Alien") {
+		if (thing.gameObject.tag == "Alien" || thing.gameObject.tag == "Fireball") {
 			StartCoroutine(PlayerHit());
 		}
 	}

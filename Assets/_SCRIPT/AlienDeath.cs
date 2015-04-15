@@ -20,6 +20,12 @@ public class AlienDeath : MonoBehaviour {
 			Z_Score.AddScore();
 
 		}
+
+		if (c.gameObject.tag == "Fireball")
+		{
+			StartCoroutine(explode ());
+		}
+
 		if (c.gameObject.tag == "Shield") {
 			audio.PlayOneShot(deathSounds[1]);
 		}
