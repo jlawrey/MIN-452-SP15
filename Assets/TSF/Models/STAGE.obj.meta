@@ -1,25 +1,20 @@
 fileFormatVersion: 2
-guid: 6c252971f8256404a8d0f9bb03160d74
+guid: c21ade05d7eb14f54a3d2793f3fa47dd
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: back1
-    100002: bottom1
-    100004: GreatHelm_GEO
-    100006: //RootNode
-    100008: imagePlane1
-    100010: imagePlane2
-    100012: nurbsSquare1
-    400000: back1
-    400002: bottom1
-    400004: GreatHelm_GEO
-    400006: //RootNode
-    400008: imagePlane1
-    400010: imagePlane2
-    400012: nurbsSquare1
-    2300000: GreatHelm_GEO
-    3300000: GreatHelm_GEO
-    4300000: GreatHelm_GEO
+    100000: pCylinder1
+    100002: //RootNode
+    100004: ramp
+    400000: pCylinder1
+    400002: //RootNode
+    400004: ramp
+    2300000: pCylinder1
+    2300002: ramp
+    3300000: pCylinder1
+    3300002: ramp
+    4300000: pCylinder1
+    4300002: ramp
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -40,7 +35,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .150000006
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -56,7 +51,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
@@ -72,6 +67,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 
