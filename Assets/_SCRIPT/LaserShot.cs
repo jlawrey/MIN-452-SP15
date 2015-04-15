@@ -23,24 +23,23 @@ public class LaserShot : MonoBehaviour
 		
 		if (lifespan <= 0)
 		{
+
 			Destroy(gameObject);
-			Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y, transform.position.z);
-			Instantiate (deathParticle, particlePosition, Quaternion.identity);
-			Destroy(deathParticle, 0.3f);
 		}
 	}
 	
 	void OnTriggerEnter(Collider target)
 	{
 
-		if (target.tag == "Shield" && target.tag == "Weapon") {
+		//if (target.tag == "Shield" || target.tag == "Weapon") 
+		
+		if (target.tag != "Player" && target.tag != "Miss"){
 
 			rigidbody.velocity = new Vector3 (-rigidbody.velocity.x, -rigidbody.velocity.y, -rigidbody.velocity.z);
-		} else {
-			Vector3 particlePosition = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
-			Instantiate (deathParticle, particlePosition, Quaternion.identity);
-			Destroy (deathParticle, 0.3f);
+
 		}
 	}
+
+
 	
 }
