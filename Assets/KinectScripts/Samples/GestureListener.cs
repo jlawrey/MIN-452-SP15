@@ -22,6 +22,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	
 	private bool swipeLeft;
 	private bool swipeRight;
+	private bool push;
 
 	
 	public bool IsSwipeLeft()
@@ -46,6 +47,18 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 		return false;
 	}
 
+	public bool IsPush()
+	{
+
+		if (push) {
+
+			push = false;
+			return true;
+		}
+
+		return false;
+	}
+
 	
 	public void UserDetected(uint userId, int userIndex)
 	{
@@ -54,6 +67,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 		
 		manager.DetectGesture(userId, KinectGestures.Gestures.SwipeLeft);
 		manager.DetectGesture(userId, KinectGestures.Gestures.SwipeRight);
+		manager.DetectGesture (userId, KinectGestures.Gestures.Push);
 
 		if(GestureInfo != null)
 		{
@@ -88,6 +102,9 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 			swipeLeft = true;
 		else if(gesture == KinectGestures.Gestures.SwipeRight)
 			swipeRight = true;
+		else if (gesture == KinectGestures.Gestures.Push){
+			push = true;
+		}
 
 		return true;
 	}

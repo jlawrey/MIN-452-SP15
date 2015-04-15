@@ -35,9 +35,15 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			anim.SetTrigger("Swing 1");
 		}
 		if(Input.GetKeyDown("3") || gestureListener.IsSwipeLeft() ){
-			anim.SetTrigger("Swing 3");
+			anim.SetTrigger("Special Hammer 1");
 			audio.PlayOneShot(weaponSounds[0]);
 			print ("BIG SWING!!!");
+		}
+		if(Input.GetKeyDown("4") || gestureListener.IsPush() ){
+			anim.SetTrigger("Special Sword 1");
+			audio.PlayOneShot(weaponSounds[0]);
+			print ("PUSH!!!");
+
 		}
 		if(Input.GetKeyDown("space") ){
 			print ("SHIELD!!!");
