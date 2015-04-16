@@ -40,7 +40,7 @@ public class Z_Score : MonoBehaviour {
 		Instantiate (deathguy, flat, Quaternion.identity);
 		if (death > 9) {
 
-			Application.LoadLevel(1);
+			Application.LoadLevel(4);
 
 		}
 		
