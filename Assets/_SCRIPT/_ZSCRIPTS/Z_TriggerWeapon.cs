@@ -12,18 +12,14 @@ public class Z_TriggerWeapon : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-
-		proxyweapon.GetComponent<SkinnedMeshRenderer>().enabled=false;
 		gestureListener = kManager.GetComponent<GestureListener> ();
-//		Wii.DeactivateMotionPlus (1);
-		anim = this.gameObject.GetComponent<Animator>();
+		anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		anim_info = anim.GetCurrentAnimatorStateInfo(0);
-
 		StartCoroutine(Action ());
 	}
 
@@ -38,23 +34,23 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			anim.SetTrigger("Swing 1");
 		}
 		if(Input.GetKeyDown("3") || gestureListener.IsSwipeLeft() ){
-			proxyweapon.GetComponent<SkinnedMeshRenderer>().enabled=true;
-			kinectweapon.GetComponent<SkinnedMeshRenderer>().enabled=false;
+			proxyweapon.SetActive(true);
+			kinectweapon.SetActive(false);
 			anim.SetTrigger("Special Hammer 1");
 			audio.PlayOneShot(weaponSounds[0]);
 			yield return new WaitForSeconds(2.0f);
-			proxyweapon.GetComponent<SkinnedMeshRenderer>().enabled=false;
-			kinectweapon.GetComponent<SkinnedMeshRenderer>().enabled=true;
+			proxyweapon.SetActive(false);
+			kinectweapon.SetActive(true);
 
 		}
 		if(Input.GetKeyDown("4") || gestureListener.IsPush() ){
-			proxyweapon.GetComponent<SkinnedMeshRenderer>().enabled=true;
-			kinectweapon.GetComponent<SkinnedMeshRenderer>().enabled=false;
+			proxyweapon.SetActive(true);
+			kinectweapon.SetActive(false);
 			anim.SetTrigger("Special Sword 1");
 			audio.PlayOneShot(weaponSounds[0]);
 			yield return new WaitForSeconds(2.0f);
-			proxyweapon.GetComponent<SkinnedMeshRenderer>().enabled=false;
-			kinectweapon.GetComponent<SkinnedMeshRenderer>().enabled=true;
+			proxyweapon.SetActive(false);
+			kinectweapon.SetActive(true);
 		}
 		if(Input.GetKeyDown("space") ){
 			print ("SHIELD!!!");

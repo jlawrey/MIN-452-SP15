@@ -13,8 +13,6 @@ public class Z_ProxyWeapon : MonoBehaviour {
 	void Awake () {
 		
 		gestureListener = kManager.GetComponent<GestureListener> ();
-		//		Wii.DeactivateMotionPlus (1);
-		anim = this.gameObject.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
