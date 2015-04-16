@@ -26,9 +26,13 @@ public class LaserShot : MonoBehaviour
 
 		//if (target.tag == "Shield" || target.tag == "Weapon") 
 		
-		if (target.tag != "Player" && target.tag != "Miss"){
+		//if (target.tag != "Player" && target.tag != "Miss")
+		if (target.tag == "Shield" || target.tag == "Weapon" || target.tag == "Alien" ) 
+		{
+
 
 			transform.rotation = new Quaternion(-transform.rotation.x,-transform.rotation.y, transform.rotation.z, transform.rotation.w);
+			//transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z +1);
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, rigidbody.velocity.y, -rigidbody.velocity.z);
 
 		}
