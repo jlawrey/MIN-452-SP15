@@ -35,7 +35,8 @@ public class LaserShot : MonoBehaviour
 		
 		if (target.tag != "Player" && target.tag != "Miss"){
 
-			rigidbody.velocity = new Vector3 (-rigidbody.velocity.x, -rigidbody.velocity.y, -rigidbody.velocity.z);
+			transform.rotation = new Quaternion(-transform.rotation.x,-transform.rotation.y,-transform.rotation.z,transform.rotation.w);
+			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, rigidbody.velocity.y, -rigidbody.velocity.z);
 
 		}
 	}
