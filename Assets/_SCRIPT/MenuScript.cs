@@ -15,6 +15,10 @@ public class MenuScript : MonoBehaviour {
 		Application.LoadLevel("Instructions");
 	}
 
+	public void MainMenu(){
+		Application.LoadLevel("MainMenu");
+	}
+
 	public void QuitGame(){
 		Application.Quit ();
 	}
