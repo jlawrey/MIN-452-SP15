@@ -30,7 +30,7 @@ public class fireFlames : MonoBehaviour {
 		{
 			if(transform.rotation.x < endRotate)
 			{
-				Debug.Log("rotateForward");
+			
 				Quaternion newRotation = Quaternion.AngleAxis(90, -Vector3.left);
 				transform.rotation= Quaternion.Slerp(transform.rotation, newRotation, .05f);  
 			}
@@ -47,7 +47,7 @@ public class fireFlames : MonoBehaviour {
 		// > startRotate
 		if (!isFiring && transform.rotation.x > startRotate) {
 
-			Debug.Log("rotateBack");
+
 			Quaternion newRotation = Quaternion.AngleAxis(-90, -Vector3.left);
 			transform.rotation= Quaternion.Slerp(transform.rotation, newRotation, .05f);  
 		}

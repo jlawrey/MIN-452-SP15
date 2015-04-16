@@ -14,6 +14,7 @@ public class fireballDestruction : MonoBehaviour {
 	void FixedUpdate () {
 	lifespan -= Time.deltaTime;
 	if (lifespan <= 0) {
+			Debug.Log("lifespanOver" + gameObject);
 			Destroy(gameObject);
 		}
 
