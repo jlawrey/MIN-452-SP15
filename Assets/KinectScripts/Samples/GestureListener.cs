@@ -23,6 +23,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	private bool swipeLeft;
 	private bool swipeRight;
 	private bool push;
+	private bool swipeDown;
 
 	
 	public bool IsSwipeLeft()
@@ -56,6 +57,18 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 			return true;
 		}
 
+		return false;
+	}
+
+	public bool IsSwipeDown()
+	{
+		
+		if (swipeDown) {
+			
+			swipeDown = false;
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -105,7 +118,10 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 		else if (gesture == KinectGestures.Gestures.Push){
 			push = true;
 		}
-
+		else if (gesture == KinectGestures.Gestures.SwipeDown){
+			swipeDown = true;
+		}
+		
 		return true;
 	}
 

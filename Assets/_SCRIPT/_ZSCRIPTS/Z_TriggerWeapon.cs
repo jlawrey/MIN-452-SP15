@@ -9,11 +9,20 @@ public class Z_TriggerWeapon : MonoBehaviour {
 	public GameObject kManager;
 	public GameObject proxyweapon;
 	public GameObject kinectweapon;
+	public Transform rightHand;
+	private Vector3 initPosition;
+	private Quaternion initRotation;
+	public AnimationClip[] animations;
 
 	// Use this for initialization
 	void Awake () {
+
 		gestureListener = kManager.GetComponent<GestureListener> ();
 		anim = GetComponent<Animator> ();
+		//proxyweapon.SetActive (false);
+		initPosition = proxyweapon.transform.position;
+		initRotation = proxyweapon.transform.rotation;
+
 	}
 	
 	// Update is called once per frame
@@ -34,32 +43,72 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			anim.SetTrigger("Swing 1");
 		}
 		if(Input.GetKeyDown("3") || gestureListener.IsSwipeLeft() ){
-			proxyweapon.SetActive(true);
-			kinectweapon.SetActive(false);
+			//proxyweapon.SetActive(true);
+			//kinectweapon.SetActive(false);
+			print ("LEAVING HAND");
+			kinectweapon.transform.parent = null;
+			kinectweapon.transform.position = new Vector3(initPosition.x,initPosition.y,initPosition.z);
+			kinectweapon.transform.rotation = initRotation;
+
+			
 			anim.SetTrigger("Special Hammer 1");
 			audio.PlayOneShot(weaponSounds[0]);
-			yield return new WaitForSeconds(2.0f);
-			proxyweapon.SetActive(false);
-			kinectweapon.SetActive(true);
+			yield return new WaitForSeconds(animations[0].length);
+
+			print ("RETURN TO HAND");
+			kinectweapon.transform.position = new Vector3(rightHand.transform.position.x,rightHand.transform.position.y,rightHand.transform.position.z);
+			kinectweapon.transform.rotation = rightHand.transform.rotation;
+			kinectweapon.transform.parent= rightHand;
+
+			//proxyweapon.SetActive(false);
+			//kinectweapon.SetActive(true);
 
 		}
-		if(Input.GetKeyDown("4") || gestureListener.IsPush() ){
-			proxyweapon.SetActive(true);
-			kinectweapon.SetActive(false);
+		if(Input.GetKeyDown("4") || gestureListener.IsSwipeDown() ){
+			//proxyweapon.SetActive(true);
+			//kinectweapon.SetActive(false);
+
+			print ("LEAVING HAND");
+			kinectweapon.transform.parent = null;
+			kinectweapon.transform.position = new Vector3(initPosition.x,initPosition.y,initPosition.z);
+			kinectweapon.transform.rotation = initRotation;
+
+
 			anim.SetTrigger("Special Sword 1");
-			audio.PlayOneShot(weaponSounds[0]);
-			yield return new WaitForSeconds(2.0f);
-			proxyweapon.SetActive(false);
-			kinectweapon.SetActive(true);
+			audio.PlayOneShot(weaponSounds[1]);
+			yield return new WaitForSeconds(animations[1].length);
+			//proxyweapon.SetActive(false);
+			//kinectweapon.SetActive(true);
+
+			print ("RETURN TO HAND");
+			kinectweapon.transform.position = new Vector3(rightHand.transform.position.x,rightHand.transform.position.y,rightHand.transform.position.z);
+			kinectweapon.transform.rotation = rightHand.transform.rotation;
+			kinectweapon.transform.parent= rightHand;
 		}
-		if(Input.GetKeyDown("space") ){
-			print ("SHIELD!!!");
-			if (!anim.GetBool("Close Shield")){
-				anim.SetBool("Close Shield",true);
-			}else{
-				anim.SetBool("Close Shield",false);
-			}
+
+		//triggers the throwing of the spear or the crossbow bolt
+		if(Input.GetKeyDown("5") || gestureListener.IsPush() ){
+			//proxyweapon.SetActive(true);
+			//kinectweapon.SetActive(false);
+			
+			print ("LEAVING HAND");
+			kinectweapon.transform.parent = null;
+			kinectweapon.transform.position = new Vector3(initPosition.x,initPosition.y,initPosition.z);
+			kinectweapon.transform.rotation = initRotation;
+			
+			
+			anim.SetTrigger("Throw Spear");
+			audio.PlayOneShot(weaponSounds[1]);
+			yield return new WaitForSeconds(animations[1].length);
+			//proxyweapon.SetActive(false);
+			//kinectweapon.SetActive(true);
+			
+			print ("RETURN TO HAND");
+			kinectweapon.transform.position = new Vector3(rightHand.transform.position.x,rightHand.transform.position.y,rightHand.transform.position.z);
+			kinectweapon.transform.rotation = rightHand.transform.rotation;
+			kinectweapon.transform.parent= rightHand;
 		}
+
 
 	}
 }
