@@ -4,8 +4,9 @@ using System.Collections;
 public class Z_WeaponInventory : MonoBehaviour {
 
 	public GameObject[] weapons;
-	public bool[] weaponOn;
-	
+	private bool[] weaponOn;
+	public int score;
+	public int numToKill;
 
 	// Use this for initialization
 	void Start () {
@@ -16,19 +17,20 @@ public class Z_WeaponInventory : MonoBehaviour {
 			weaponOn[i] = false;
 		}
 		//start coroutine to swap out weapons as the player obtains them
-		StartCoroutine (weaponSwap ());
+		//StartCoroutine (weaponSwap ());
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		score = Z_Score.score;
 		//constantly checks for 
 		for(int i=0; i<weapons.Length;i++){
 			if (isWeaponAdded(Z_Score.score,i)) {
-				weaponOn [i] = true;
-			}else{
-				weaponOn [i] = false;
+				weapons[i].SetActive(true);
+			}else if (!isWeaponAdded(Z_Score.score,i)){
+				weapons[i].SetActive(false);
 			}
 		}
 
@@ -40,8 +42,9 @@ public class Z_WeaponInventory : MonoBehaviour {
 		for(int i=0;i<weapons.Length;i++) {
 			if(!weaponOn[i]){
 				weapons[i].SetActive(false);
+			}else{
+				weapons[i].SetActive(true);
 			}
-			weapons[i].SetActive(true);
 			
 		}
 		yield return null;
@@ -49,7 +52,7 @@ public class Z_WeaponInventory : MonoBehaviour {
 
 	public bool isWeaponAdded(int nscore, int weapon_id){
 
-		if (nscore/10 == weapon_id){
+		if (nscore/numToKill == weapon_id){
 			return true;
 		}else{
 			return false;

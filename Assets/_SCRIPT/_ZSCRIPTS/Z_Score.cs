@@ -11,6 +11,7 @@ public class Z_Score : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		score = 0;
 		scoretick = GameObject.FindGameObjectWithTag ("scoretick");
 	
 	}

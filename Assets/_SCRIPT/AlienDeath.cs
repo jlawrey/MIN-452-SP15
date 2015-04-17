@@ -16,6 +16,7 @@ public class AlienDeath : MonoBehaviour {
 		print (c.gameObject.name);
 		if (c.gameObject.tag == "Weapon")
 		{
+			print ("object hit with weapon");
 			StartCoroutine(explode ());
 			Z_Score.AddScore();
 
@@ -59,10 +60,10 @@ public class AlienDeath : MonoBehaviour {
 	{
 
 		audio.PlayOneShot(deathSounds[0]);
-		Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y, transform.position.z);
+		Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y, transform.position.z - 1);
 		Instantiate (deathParticle, particlePosition, Quaternion.identity);
 		//Destroy(deathParticle, 1);
-		yield return new WaitForSeconds (.3f);
+		yield return new WaitForSeconds (deathSounds[0].length);
 		Destroy(gameObject);
 
 	}

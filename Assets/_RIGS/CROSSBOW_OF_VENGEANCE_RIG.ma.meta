@@ -1,26 +1,22 @@
 fileFormatVersion: 2
-guid: 36af0fe8de2ca3643adba9cf85ed99f8
+guid: acd2f22e813474198b9504e02763ee01
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: joint2
-    100002: spear
-    100004: //RootNode
-    100006: SpearBase
-    100008: wing_1
-    100010: wing_2
-    400000: joint2
-    400002: spear
-    400004: //RootNode
-    400006: SpearBase
-    400008: wing_1
-    400010: wing_2
-    4300000: spear
+    100000: crossbow_1
+    100002: //RootNode
+    100004: crossbow_root
+    100006: pCube14
+    400000: crossbow_1
+    400002: //RootNode
+    400004: crossbow_root
+    400006: pCube14
+    4300000: pCube14
     7400000: Take 001
-    7400002: Spear Throw
-    7400004: Idle
+    7400002: Crossbow Fire
+    7400004: Crossbow Idle
     9500000: //RootNode
-    13700000: spear
+    13700000: pCube14
   materials:
     importMaterials: 1
     materialName: 0
@@ -30,7 +26,7 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -41,41 +37,7 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 30
-      wrapMode: 0
-      orientationOffsetY: -3.29999995
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: spear
-        weight: 1
-      - path: SpearBase
-        weight: 1
-      - path: SpearBase/joint2
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: Spear Throw
-      takeName: Take 001
-      firstFrame: 1
-      lastFrame: 60
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -97,19 +59,19 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: spear
+      - path: crossbow_root
         weight: 1
-      - path: SpearBase
+      - path: crossbow_root/crossbow_1
         weight: 1
-      - path: SpearBase/joint2
+      - path: pCube14
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Idle
+      name: Crossbow Fire
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 2
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -131,18 +93,52 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: spear
+      - path: crossbow_root
         weight: 1
-      - path: SpearBase
+      - path: crossbow_root/crossbow_1
         weight: 1
-      - path: SpearBase/joint2
+      - path: pCube14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Crossbow Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1.10000002
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: crossbow_root
+        weight: 1
+      - path: crossbow_root/crossbow_1
+        weight: 1
+      - path: pCube14
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0399999991
+    globalScale: .0299999993
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
