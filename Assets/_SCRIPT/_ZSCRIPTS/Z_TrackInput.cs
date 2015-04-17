@@ -44,27 +44,27 @@ public class Z_TrackInput : MonoBehaviour {
 			//mHeadPosition = VRHead.position;
 		}
 		//Wii Head Tracking
-		if (HeadInput == InputMethod.Wii && Wii.IsActive(0)){//if we are using 2-point WiiMote IR tracking
-
-			//first get the pixel values from the WiiMote IR cam and de-normalize and flip them (so that they are using the actual pixel values from the camera)
-			IR1 = new Vector2(
-							Mathf.Abs(
-							((Wii.GetRawIRData (0) [0].x) * 1024)-1024)
-							,
-			                Mathf.Abs(
-							((Wii.GetRawIRData (0) [0].y) * 768)-768)
-			                );
-			IR2 = new Vector2(
-							Mathf.Abs(
-							((Wii.GetRawIRData (0) [1].x) * 1024)-1024)
-							,
-							Mathf.Abs(
-							((Wii.GetRawIRData (0) [1].y) * 768)-768)
-							);
-			//then set head location to calculated position from IR points
-			VRHead.localPosition = HeadXYZFrom2Points(IR1,IR2);
-			//mHeadPosition = HeadXYZFrom2Points(IR1,IR2);
-		}
+//		if (HeadInput == InputMethod.Wii && Wii.IsActive(0)){//if we are using 2-point WiiMote IR tracking
+//
+//			//first get the pixel values from the WiiMote IR cam and de-normalize and flip them (so that they are using the actual pixel values from the camera)
+//			IR1 = new Vector2(
+//							Mathf.Abs(
+//							((Wii.GetRawIRData (0) [0].x) * 1024)-1024)
+//							,
+//			                Mathf.Abs(
+//							((Wii.GetRawIRData (0) [0].y) * 768)-768)
+//			                );
+//			IR2 = new Vector2(
+//							Mathf.Abs(
+//							((Wii.GetRawIRData (0) [1].x) * 1024)-1024)
+//							,
+//							Mathf.Abs(
+//							((Wii.GetRawIRData (0) [1].y) * 768)-768)
+//							);
+//			//then set head location to calculated position from IR points
+//			VRHead.localPosition = HeadXYZFrom2Points(IR1,IR2);
+//			//mHeadPosition = HeadXYZFrom2Points(IR1,IR2);
+//		}
 		//Kinect Head Tracking
 		if (HeadInput == InputMethod.Kinect) {
 

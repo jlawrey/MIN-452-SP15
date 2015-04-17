@@ -71,7 +71,7 @@ public class AlienDeath : MonoBehaviour {
 		Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y, transform.position.z - 1);
 		Instantiate (deathParticle, particlePosition, Quaternion.identity);
 		//Destroy(deathParticle, 1);
-		yield return new WaitForSeconds (deathSounds[0].length);
+		yield return new WaitForSeconds (deathSounds[0].length *2);
 		Destroy(gameObject);
 
 	}

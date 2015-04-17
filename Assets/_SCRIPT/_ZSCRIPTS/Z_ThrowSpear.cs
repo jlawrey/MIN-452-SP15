@@ -24,8 +24,7 @@ public class Z_ThrowSpear : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		//proxyweapon.SetActive (false);
 		initPosition = proxyweapon.transform.position;
-		initRotation = proxyweapon.transform.rotation;
-	}
+		initRotation = proxyweapon.transform.rotation;	}
 	
 	// Update is called once per frame
 	void Update () {
