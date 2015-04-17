@@ -10,10 +10,18 @@ public class AlienDeath : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+
+
+	void OnParticleCollision(GameObject thing){
+
+			print ("the particle collided");
+			StartCoroutine(explode ());
+			Z_Score.AddScore();
+	}
+
 	void OnCollisionEnter(Collision c)
 	{
-		print (c.gameObject.name);
+		//print (c.gameObject.name);
 		if (c.gameObject.tag == "Weapon")
 		{
 			print ("object hit with weapon");
