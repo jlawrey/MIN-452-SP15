@@ -24,7 +24,7 @@ public class AlienDeath : MonoBehaviour {
 		//print (c.gameObject.name);
 		if (c.gameObject.tag == "Weapon")
 		{
-			print ("object hit with weapon");
+			print (gameObject.name + " hit with " + c.gameObject.name);
 			StartCoroutine(explode ());
 			Z_Score.AddScore();
 
@@ -66,12 +66,12 @@ public class AlienDeath : MonoBehaviour {
 
 	IEnumerator explode()
 	{
-
+		print ("Hit Explode");
 		audio.PlayOneShot(deathSounds[0]);
 		Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y, transform.position.z - 1);
 		Instantiate (deathParticle, particlePosition, Quaternion.identity);
 		//Destroy(deathParticle, 1);
-		yield return new WaitForSeconds (deathSounds[0].length *2);
+		yield return new WaitForSeconds (deathSounds[0].length);
 		Destroy(gameObject);
 
 	}
