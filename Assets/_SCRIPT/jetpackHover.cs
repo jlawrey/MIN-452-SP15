@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class jetpackHover : MonoBehaviour {
+
 	private float flyHeight = 3.5f;
 	private float yBoost = 15f;
 
