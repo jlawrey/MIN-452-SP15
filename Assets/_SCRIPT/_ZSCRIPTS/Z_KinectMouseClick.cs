@@ -9,6 +9,8 @@ public class Z_KinectMouseClick : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
+
+
 	}
 	
 	// Update is called once per frame
@@ -18,6 +20,7 @@ public class Z_KinectMouseClick : MonoBehaviour {
 		{
 			manager = InteractionManager.Instance;
 		}
+
 	}
 
 	void OnMouseOver(){

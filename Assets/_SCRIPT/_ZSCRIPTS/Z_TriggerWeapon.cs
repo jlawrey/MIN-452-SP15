@@ -48,6 +48,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			print ("LEAVING HAND");
 			kinectweapon.transform.parent = null;
 			kinectweapon.transform.position = new Vector3(initPosition.x,initPosition.y,initPosition.z);
+			kinectweapon.transform.localEulerAngles = initRotation;
 
 			
 			anim.SetTrigger("Special Hammer 1");
@@ -69,6 +70,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			print ("LEAVING HAND");
 			kinectweapon.transform.parent = null;
 			kinectweapon.transform.position = new Vector3(initPosition.x,initPosition.y,initPosition.z);
+			kinectweapon.transform.localEulerAngles = initRotation;
 
 
 			anim.SetTrigger("Special Sword 1");
@@ -83,7 +85,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 		}
 
 		//triggers the throwing of the spear or the crossbow bolt
-		if(Input.GetKeyDown("5") || gestureListener.IsPush() ){
+		if((Input.GetKeyDown("5") && gameObject.tag == "Spear") || (gestureListener.IsPush() && gameObject.tag == "Spear") ){
 			//proxyweapon.SetActive(true);
 			//kinectweapon.SetActive(false);
 			
