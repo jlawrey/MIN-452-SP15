@@ -29,10 +29,29 @@ public class Z_TriggerWeapon : MonoBehaviour {
 	void Update () {
 
 		anim_info = anim.GetCurrentAnimatorStateInfo(0);
-		StartCoroutine(Action ());
+		StartCoroutine(WeaponAction ());
+		StartCoroutine (CrossBowFire ());
 	}
 
-	IEnumerator Action(){
+
+	IEnumerator CrossBowFire(){
+
+		if (Input.GetKeyDown ("7") || (gestureListener.IsPush() && gameObject.tag == "Crossbow") ) {
+			//loop this for rapid fire
+			print ("bolting!!!");
+			GameObject bolt_pfab = Resources.Load <GameObject>("bolt");
+			GameObject bolt = Instantiate(bolt_pfab,initPosition,Quaternion.identity) as GameObject ;
+			bolt.transform.localEulerAngles = initRotation;
+			audio.PlayOneShot(weaponSounds[2]);
+			bolt.rigidbody.AddRelativeForce(0,0,900);
+			yield return new WaitForSeconds(weaponSounds[2].length);
+			Destroy(bolt);
+		}
+
+
+	}
+
+	IEnumerator WeaponAction(){
 
 		//bool ShieldClosed;
 
