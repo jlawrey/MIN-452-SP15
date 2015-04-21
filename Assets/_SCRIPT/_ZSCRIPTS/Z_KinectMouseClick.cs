@@ -26,7 +26,7 @@ public class Z_KinectMouseClick : MonoBehaviour {
 
 	void OnMouseOver(){
 
-		if (manager.GetRightHandEvent() == InteractionWrapper.InteractionHandEventType.Grip) {
+		if (manager.GetRightHandEvent() == InteractionWrapper.InteractionHandEventType.Grip && manager.IsInteractionInited()) {
 			kinect_be_on = false;
 			print ("PlayMode!!");
 			Application.LoadLevel(level);

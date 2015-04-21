@@ -74,16 +74,30 @@ public class GrabDropScript : MonoBehaviour
 					{
 						foreach(GameObject obj in draggableObjects)
 						{
-							if(hit.collider.gameObject == obj)
+							if(hit.collider.gameObject == obj && obj.gameObject.tag == "Play")
 							{
-								// an object was hit by the ray. select it and start drgging
-								draggedObject = obj;
-								draggedObjectDepth = draggedObject.transform.position.z - Camera.main.transform.position.z;
-								draggedObjectOffset = hit.point - draggedObject.transform.position;
+								manager = null;
+								print("hit game object");
+								Application.LoadLevel(3);
+								gameObject.SetActive(false);
+								break;
+							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Instructions"){
+
+								manager = null;
+								Application.LoadLevel(1);
+								gameObject.SetActive(false);
+								break;
+							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Options"){
 								
-								// set selection material
-								draggedObjectMaterial = draggedObject.renderer.material;
-								draggedObject.renderer.material = selectedObjectMaterial;
+								manager = null;
+								Application.LoadLevel(2);
+								gameObject.SetActive(false);
+								break;
+							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Main"){
+								
+								manager = null;
+								Application.LoadLevel(0);
+								gameObject.SetActive(false);
 								break;
 							}
 						}
