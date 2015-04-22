@@ -16,6 +16,7 @@ public class ShipFireLaser : MonoBehaviour {
 	public GameObject laserGun;//Connection to gun geometry
 	public Animator anim;//Connection to animator
 
+	public Transform shotLocation;
 
 
 
@@ -49,7 +50,7 @@ public class ShipFireLaser : MonoBehaviour {
 		yield return new WaitForSeconds (0.75f);
 		//Instantiate shot
 		//Instantiate shot
-		Vector3 createPos = new Vector3 (transform.position.x,transform.position.y,transform.position.z - 2);
+		Vector3 createPos = new Vector3 (shotLocation.position.x,shotLocation.position.y,shotLocation.position.z);
 		GameObject nextShot = Instantiate(laser, createPos, transform.rotation) as GameObject;
 		nextShot.GetComponent<LaserShot> ().force = 700;
 		//Point it at the player, its own script handles movement
