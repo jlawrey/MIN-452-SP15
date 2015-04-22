@@ -69,7 +69,7 @@ public class followPlayerEyeball : MonoBehaviour {
 
 			if (nextShot <= 0 )
 			{
-				FireShot();
+				StartCoroutine (FireShot());
 				nextShot = fireRate;//Reset timer
 			}
 			
@@ -82,8 +82,10 @@ public class followPlayerEyeball : MonoBehaviour {
 
 		
 
-public void FireShot()
+public IEnumerator FireShot()
 {
+	anim.SetTrigger ("fireShot");
+	yield return new WaitForSeconds (0.75f);
 	//Instantiate shot
 	Vector3 createPos = laserSpawnPoint.transform.position;
 	GameObject nextShot = Instantiate(laserShot, createPos, transform.rotation) as GameObject;
@@ -98,7 +100,7 @@ public IEnumerator Attack(){
 		attacking = false;
 		float waittime = Random.Range (1, 18.5f);
 		yield return new WaitForSeconds (waittime);
-		anim.SetBool ("attack", true);
+		//anim.SetBool ("attack", true);
 		laserDistance = new Vector3( player.transform.position.x + Random.Range(-2,2) ,player.transform.position.y,player.transform.position.z +2f );
 		attacking = true;
 

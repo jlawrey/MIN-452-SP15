@@ -39,12 +39,15 @@ public class moveFormation : MonoBehaviour {
 
 		else 
 		{
+
+
 			foreach (Transform child in transform)
 			{
-				child.DetachChildren();
-				Destroy(child.gameObject);
+
+				//child.DetachChildren();
+				//Destroy(child.gameObject);
 			}
-			Destroy(gameObject);
+			//Destroy(gameObject);
 		}
 	
 	}
