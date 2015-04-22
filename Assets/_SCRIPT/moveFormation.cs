@@ -43,9 +43,12 @@ public class moveFormation : MonoBehaviour {
 
 			foreach (Transform child in transform)
 			{
+				/*
+				Transform alien = child.GetChild(0);
+				child.DetachChildren();
+				Destroy(child.gameObject);
 
-				//child.DetachChildren();
-				//Destroy(child.gameObject);
+				alien.rotation = new Quaternion(0,180,0,0);*/
 			}
 			//Destroy(gameObject);
 		}
