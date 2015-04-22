@@ -12,7 +12,10 @@ public class Z_TriggerWeapon : MonoBehaviour {
 	public Transform rightHand;
 	private Vector3 initPosition;
 	private Vector3 initRotation;
+	private Quaternion initQuat;
 	public AnimationClip[] animations;
+	public int firespeed = 500;
+	private InteractionManager manager;
 
 	// Use this for initialization
 	void Awake () {
@@ -22,6 +25,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 		//proxyweapon.SetActive (false);
 		initPosition = proxyweapon.transform.position;
 		initRotation = proxyweapon.transform.localEulerAngles;
+		initQuat = proxyweapon.transform.localRotation;
 
 	}
 	
@@ -36,15 +40,22 @@ public class Z_TriggerWeapon : MonoBehaviour {
 
 	IEnumerator CrossBowFire(){
 
+//		if(manager == null)
+//		{
+//			manager = InteractionManager.Instance;
+//		}
 		if (Input.GetKeyDown ("7") || (gestureListener.IsPush() && gameObject.tag == "Crossbow") ) {
 			//loop this for rapid fire
 			print ("bolting!!!");
 			GameObject bolt_pfab = Resources.Load <GameObject>("bolt");
 			GameObject bolt = Instantiate(bolt_pfab,initPosition,Quaternion.identity) as GameObject ;
-			bolt.transform.localEulerAngles = initRotation;
-			audio.PlayOneShot(weaponSounds[2]);
-			bolt.rigidbody.AddRelativeForce(0,0,900);
-			yield return new WaitForSeconds(weaponSounds[2].length);
+			//bolt.transform.parent = this.gameObject.transform;
+			bolt.transform.localEulerAngles = new Vector3(0,0,0);
+			audio.PlayOneShot(weaponSounds[1]);
+			anim.SetTrigger("Fire Bolt");
+			bolt.rigidbody.AddRelativeForce(0,0,firespeed);
+			//yield return new WaitForSeconds(weaponSounds[1].length);
+			yield return new WaitForSeconds(2);
 			Destroy(bolt);
 		}
 
@@ -55,12 +66,8 @@ public class Z_TriggerWeapon : MonoBehaviour {
 
 		//bool ShieldClosed;
 
-		if (Input.GetKeyDown ("2") ) {
-			anim.SetTrigger ("Swing 2");
-		}
-		if(Input.GetKeyDown("1") ){
-			anim.SetTrigger("Swing 1");
-		}
+
+
 		if(Input.GetKeyDown("3") || gestureListener.IsSwipeLeft() ){
 			//proxyweapon.SetActive(true);
 			//kinectweapon.SetActive(false);
@@ -117,8 +124,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			anim.SetTrigger("Throw Spear");
 			audio.PlayOneShot(weaponSounds[1]);
 			yield return new WaitForSeconds(animations[1].length);
-			//proxyweapon.SetActive(false);
-			//kinectweapon.SetActive(true);
+
 			
 			print ("RETURN TO HAND");
 			kinectweapon.transform.position = new Vector3(rightHand.transform.position.x,rightHand.transform.position.y,rightHand.transform.position.z);
