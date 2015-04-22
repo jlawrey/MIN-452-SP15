@@ -8,6 +8,8 @@ public class GrabDropScript : MonoBehaviour
 	public Material selectedObjectMaterial;
 	
 	private InteractionManager manager;
+	private bool kill_manager;
+
 	private bool isLeftHandDrag;
 
 	private GameObject draggedObject;
@@ -17,17 +19,23 @@ public class GrabDropScript : MonoBehaviour
 	
 	GameObject infoGUI;
 	
-	
+//	void Start(){
+//		if(manager == null)
+//		{
+//			manager = InteractionManager.Instance;
+//		}
+//	}
 	void Awake() 
 	{
 		infoGUI = GameObject.Find("HandGuiText");
+		kill_manager = false;
 	}
 	
 	
 	void Update() 
 	{
 		// get the interaction manager instance
-		if(manager == null)
+		if(manager == null && !kill_manager)
 		{
 			manager = InteractionManager.Instance;
 		}
@@ -76,29 +84,41 @@ public class GrabDropScript : MonoBehaviour
 						{
 							if(hit.collider.gameObject == obj && obj.gameObject.tag == "Play")
 							{
-								manager = null;
+
 								print("hit game object");
-								Application.LoadLevel(3);
-								gameObject.SetActive(false);
-								break;
+								manager = null;
+								kill_manager = true;
+								Application.LoadLevel("MMM_Level_01");
+								Destroy(gameObject);
+								//gameObject.SetActive(false);
+								//break;
 							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Instructions"){
 
+								print("hit game object");
 								manager = null;
-								Application.LoadLevel(1);
-								gameObject.SetActive(false);
-								break;
+								kill_manager = true;
+								Application.LoadLevel("Instructions");
+								Destroy(gameObject);
+								//gameObject.SetActive(false);
+								//break;
 							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Options"){
-								
+
+								print("hit game object");
 								manager = null;
-								Application.LoadLevel(2);
-								gameObject.SetActive(false);
-								break;
+								kill_manager = true;
+								Application.LoadLevel("Options");
+								Destroy(gameObject);
+								//gameObject.SetActive(false);
+								//break;
 							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Main"){
-								
+
+								print("hit " + obj.gameObject.tag);
 								manager = null;
-								Application.LoadLevel(0);
-								gameObject.SetActive(false);
-								break;
+								kill_manager = true;
+								Application.LoadLevel("MainMenu");
+								Destroy(gameObject);
+								//gameObject.SetActive(false);
+								//break;
 							}
 						}
 					}

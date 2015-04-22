@@ -3,7 +3,7 @@ using System.Collections;
 
 public class fireFlames : MonoBehaviour {
 
-	float fireRate = 8;
+	float fireRate = 12;
 	float fireTimer;
 	float fireDelay = 2f;
 	float fireForce = 1000f;
