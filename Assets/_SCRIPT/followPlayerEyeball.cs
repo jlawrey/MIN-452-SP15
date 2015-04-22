@@ -46,7 +46,7 @@ public class followPlayerEyeball : MonoBehaviour {
 
 		}*/
 
-		transform.LookAt (player.transform.position);
+		transform.LookAt(player.transform);
 
 		if (attacking) 
 		{
