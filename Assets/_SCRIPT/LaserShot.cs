@@ -6,7 +6,7 @@ public class LaserShot : MonoBehaviour
 	
 	 int damage = 1;
 
-	 float force = 700;
+	 public float force = 700;
 	public GameObject deathParticle;
 	
 	// Use this for initialization

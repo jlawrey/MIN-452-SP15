@@ -14,6 +14,7 @@ public class spawnFormation : MonoBehaviour {
 
 	public bool jetpackAlien = true;
 	public bool eyeballAlien = true;
+	public float eyballSpawnChance;
 
 	private List<GameObject> formations;
 	public GameObject vFormObj;
@@ -62,7 +63,11 @@ public class spawnFormation : MonoBehaviour {
 				Transform[] children = newFormation.GetComponentsInChildren<Transform>();
 				foreach (Transform child in children)
 				{
-					GameObject newAlien = Instantiate( aliens[Random.Range(0, aliens.Count)], child.position, Quaternion.identity) as GameObject;
+					GameObject typeToSpawn = aliens[0];
+					if (eyeballAlien && Random.Range(0f,1f) < eyballSpawnChance)
+						typeToSpawn = aliens[1];
+
+					GameObject newAlien = Instantiate( typeToSpawn, child.position, Quaternion.identity) as GameObject;
 					newAlien.GetComponent<lookAt>().target = player.transform;
 					newAlien.transform.parent = child;
 					if( newAlien.transform.parent == newFormation.transform)
