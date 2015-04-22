@@ -14,7 +14,7 @@ public class ShipFireLaser : MonoBehaviour {
 	private bool firing = true;//Sets where ship is firing or not, usually true
 	public GameObject laser;//Connection to laser shot prefab
 	public GameObject laserGun;//Connection to gun geometry
-	public Animator animator;//Connection to animator
+	public Animator anim;//Connection to animator
 
 
 
@@ -36,20 +36,28 @@ public class ShipFireLaser : MonoBehaviour {
 	//If timer has hit 0, fire a shot
 	if (nextShot <0 && firing == true)
 	{
-		FireShot();
+		StartCoroutine(FireShot());
 		nextShot = fireRate;//Reset timer
 	}
 	
 	
 	}
 	
-	void FireShot()
+	public IEnumerator FireShot()
 	{
+		anim.SetTrigger ("fireShot");
+		yield return new WaitForSeconds (0.75f);
+		//Instantiate shot
 		//Instantiate shot
 		Vector3 createPos = new Vector3 (transform.position.x,transform.position.y,transform.position.z - 2);
 		GameObject nextShot = Instantiate(laser, createPos, transform.rotation) as GameObject;
+		nextShot.GetComponent<LaserShot> ().force = 700;
 		//Point it at the player, its own script handles movement
 		nextShot.transform.LookAt(player.transform);
 	}
+
+
+
+
 	
 }
