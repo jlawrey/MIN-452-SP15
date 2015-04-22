@@ -12,13 +12,18 @@ public class spawnFormation : MonoBehaviour {
 	public bool rankFormation = false;
 	public bool collumnFormation = false;
 
+	public bool jetpackAlien = true;
+	public bool eyeballAlien = true;
 
 	private List<GameObject> formations;
 	public GameObject vFormObj;
 	public GameObject rankFormObj;
 	public GameObject collumnFormObj;
-	public GameObject alien;
 
+	public GameObject jetpackAlienObj;
+	public GameObject eyeballAlienObj;
+
+	private List<GameObject> aliens;
 	private GameObject player;
 
 	// Use this for initialization
@@ -31,6 +36,14 @@ public class spawnFormation : MonoBehaviour {
 			formations.Add(rankFormObj);
 		if (collumnFormation)
 			formations.Add(collumnFormObj);
+
+		aliens = new List<GameObject>();
+		if (jetpackAlien)
+			aliens.Add(jetpackAlienObj);
+		if (eyeballAlien)
+			aliens.Add(eyeballAlienObj);
+
+
 		spawnTimer = 1;
 
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -49,7 +62,7 @@ public class spawnFormation : MonoBehaviour {
 				Transform[] children = newFormation.GetComponentsInChildren<Transform>();
 				foreach (Transform child in children)
 				{
-					GameObject newAlien = Instantiate(alien, child.position, Quaternion.identity) as GameObject;
+					GameObject newAlien = Instantiate( aliens[Random.Range(0, aliens.Count)], child.position, Quaternion.identity) as GameObject;
 					newAlien.GetComponent<lookAt>().target = player.transform;
 					newAlien.transform.parent = child;
 					if( newAlien.transform.parent == newFormation.transform)
