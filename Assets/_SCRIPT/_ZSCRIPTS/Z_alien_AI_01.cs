@@ -17,42 +17,50 @@ public class Z_alien_AI_01 : MonoBehaviour {
 	private bool doattack;
 	private bool tracking = true;
 	public float force;
+	public Transform[] followers;
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
+
+		anim = gameObject.GetComponent<Animator> ();
 		StartCoroutine (Attack ());
 		random_seed = Random.Range (.1f, .3f);
 
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
-		//start the attack function
-		//sets up the floating Y values
-		float floatY = (Mathf.Sin (Time.frameCount * y_freq) * random_seed) + y_offset;
-		//moves the char left and right on the X-axis
-		if(floater.transform.position.x < .6){
-			floater.transform.Translate(.01f,0,0,Space.World);
-		}else{
-			floater.transform.Translate(-.01f,0,0,Space.World);
-		}
+
+
 		//look at player head if not attacking
-		if(!isAttacking){
-			floater.transform.LookAt(target);
+		foreach (Transform follower in followers){
+			follower.LookAt (target.transform.position,Vector3.up);
 		}
-		floater.transform.localPosition = new Vector3 (floater.transform.localPosition.x, floatY, floater.transform.localPosition.z);
+
+		//sets up the floating Y values
+//		float floatY = (Mathf.Sin (Time.frameCount * y_freq) * random_seed) + y_offset;
+//		//moves the char left and right on the X-axis
+//		if(floater.transform.position.x < .6){
+//			floater.transform.Translate(.01f,0,0,Space.World);
+//		}else{
+//			floater.transform.Translate(-.01f,0,0,Space.World);
+//		}
+//		floater.transform.localPosition = new Vector3 (floater.transform.localPosition.x, floatY, floater.transform.localPosition.z);
 
 	}
 
-	public IEnumerator Attack(){
+	public IEnumerator Attack(){// coroutine to attack randomly by adding local forward force, which will propel the alien forward in the local Z-axis, which should be facing the player's last vector 
 
-		float waittime = Random.Range (1, 18.5f);
+		float waittime = Random.Range (1, 5.5f);
 		yield return new WaitForSeconds (waittime);
 		isAttacking = true;
+		anim.SetTrigger ("Attack");
 		print (waittime + " ATTACK!!!");
+		anim.applyRootMotion = false;
 		floater.gameObject.rigidbody.AddRelativeForce (0, 0, force);
-		floater.gameObject.rigidbody.AddRelativeTorque (force/2,0,0);
+		//floater.gameObject.rigidbody.AddRelativeTorque (force/2,0,0);
 
 	}
 

@@ -49,6 +49,9 @@ ModelImporter:
     100086: pSphere7
     100088: pSphere8
     100090: pSphere9
+    100092: Alien_L_EyeBall1
+    100094: Alien_M_EyeBall_Flat
+    100096: Alien_R_EyeBall1
     400000: Alien_L_EyeBall
     400002: Alien_M_EyeBall
     400004: Alien_M_Stalk_1
@@ -95,6 +98,15 @@ ModelImporter:
     400086: pSphere7
     400088: pSphere8
     400090: pSphere9
+    400092: Alien_L_EyeBall1
+    400094: Alien_M_EyeBall_Flat
+    400096: Alien_R_EyeBall1
+    2300000: pSphere2
+    2300002: pSphere3
+    2300004: pSphere4
+    3300000: pSphere2
+    3300002: pSphere3
+    3300004: pSphere4
     4300000: pSphere1
     4300002: pSphere2
     4300004: pSphere3
@@ -117,7 +129,10 @@ ModelImporter:
     4300038: pCube2
     7400000: Take 001
     7400002: EyeStalks
-    7400004: Alien Spin Rig
+    7400004: Alien Spin
+    7400006: Alien Still
+    7400008: Attack Lean
+    7400010: Alien Idle
     9500000: //RootNode
     13700000: pCone1
     13700002: pCone2
@@ -287,6 +302,128 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienRoot
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3/Alien_M_Stalk_4
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3/Alien_M_Stalk_4/Alien_M_EyeBall
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2/Alien_M_Stalk_4
+          2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2/Alien_M_Stalk_4
+          2/Alien_R_EyeBall
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1/Alien_M_Stalk_4
+          1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1/Alien_M_Stalk_4
+          1/Alien_L_EyeBall
+        weight: 1
+      - path: directionalLight1
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pCylinder1
+        weight: 1
+      - path: group1/pCylinder2
+        weight: 1
+      - path: group1/pCylinder3
+        weight: 1
+      - path: group1/pSphere1
+        weight: 1
+      - path: group1/pSphere2
+        weight: 1
+      - path: group1/pSphere3
+        weight: 1
+      - path: group1/pSphere4
+        weight: 1
+      - path: group1/pSphere5
+        weight: 1
+      - path: group1/pSphere6
+        weight: 1
+      - path: group1/pSphere7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/group3
+        weight: 1
+      - path: group4
+        weight: 1
+      - path: group5
+        weight: 1
+      - path: group5/pCone1
+        weight: 1
+      - path: group5/pCone2
+        weight: 1
+      - path: group5/pCube1
+        weight: 1
+      - path: group5/pCube2
+        weight: 1
+      - path: group5/pCube3
+        weight: 1
+      - path: group5/pCylinder4
+        weight: 1
+      - path: group5/pCylinder5
+        weight: 1
+      - path: group5/pSphere8
+        weight: 1
+      - path: group5/pSphere9
+        weight: 1
+      - path: group5/pSphere10
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Alien Spin
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -400,10 +537,132 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Alien Spin Rig
+      name: Alien Still
       takeName: Take 001
-      firstFrame: 2
-      lastFrame: 15
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienRoot
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3/Alien_M_Stalk_4
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3/Alien_M_Stalk_4/Alien_M_EyeBall
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2/Alien_M_Stalk_4
+          2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2/Alien_M_Stalk_4
+          2/Alien_R_EyeBall
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1/Alien_M_Stalk_4
+          1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1/Alien_M_Stalk_4
+          1/Alien_L_EyeBall
+        weight: 1
+      - path: directionalLight1
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pCylinder1
+        weight: 1
+      - path: group1/pCylinder2
+        weight: 1
+      - path: group1/pCylinder3
+        weight: 1
+      - path: group1/pSphere1
+        weight: 1
+      - path: group1/pSphere2
+        weight: 1
+      - path: group1/pSphere3
+        weight: 1
+      - path: group1/pSphere4
+        weight: 1
+      - path: group1/pSphere5
+        weight: 1
+      - path: group1/pSphere6
+        weight: 1
+      - path: group1/pSphere7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/group3
+        weight: 1
+      - path: group4
+        weight: 1
+      - path: group5
+        weight: 1
+      - path: group5/pCone1
+        weight: 1
+      - path: group5/pCone2
+        weight: 1
+      - path: group5/pCube1
+        weight: 1
+      - path: group5/pCube2
+        weight: 1
+      - path: group5/pCube3
+        weight: 1
+      - path: group5/pCylinder4
+        weight: 1
+      - path: group5/pCylinder5
+        weight: 1
+      - path: group5/pSphere8
+        weight: 1
+      - path: group5/pSphere9
+        weight: 1
+      - path: group5/pSphere10
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack Lean
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 113
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -460,6 +719,136 @@ ModelImporter:
         weight: 1
       - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1/Alien_M_Stalk_4
           1/Alien_L_EyeBall
+        weight: 1
+      - path: directionalLight1
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pCylinder1
+        weight: 1
+      - path: group1/pCylinder2
+        weight: 1
+      - path: group1/pCylinder3
+        weight: 1
+      - path: group1/pSphere1
+        weight: 1
+      - path: group1/pSphere2
+        weight: 1
+      - path: group1/pSphere3
+        weight: 1
+      - path: group1/pSphere4
+        weight: 1
+      - path: group1/pSphere5
+        weight: 1
+      - path: group1/pSphere6
+        weight: 1
+      - path: group1/pSphere7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/group3
+        weight: 1
+      - path: group4
+        weight: 1
+      - path: group5
+        weight: 1
+      - path: group5/pCone1
+        weight: 1
+      - path: group5/pCone2
+        weight: 1
+      - path: group5/pCube1
+        weight: 1
+      - path: group5/pCube2
+        weight: 1
+      - path: group5/pCube3
+        weight: 1
+      - path: group5/pCylinder4
+        weight: 1
+      - path: group5/pCylinder5
+        weight: 1
+      - path: group5/pSphere8
+        weight: 1
+      - path: group5/pSphere9
+        weight: 1
+      - path: group5/pSphere10
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Alien Idle
+      takeName: Take 001
+      firstFrame: 80
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienRoot
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3/Alien_M_Stalk_4
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3/Alien_M_Stalk_4/Alien_M_EyeBall
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_1/Alien_M_Stalk_2/Alien_M_Stalk_3/Alien_M_Stalk_4/Alien_M_EyeBall/Alien_M_EyeBall_Flat
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2/Alien_M_Stalk_4
+          2
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2/Alien_M_Stalk_4
+          2/Alien_R_EyeBall
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_5/Alien_M_Stalk_2 2/Alien_M_Stalk_3 2/Alien_M_Stalk_4
+          2/Alien_R_EyeBall/Alien_R_EyeBall1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1/Alien_M_Stalk_4
+          1
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1/Alien_M_Stalk_4
+          1/Alien_L_EyeBall
+        weight: 1
+      - path: AlienRoot/Alien_M_Stalk_10/Alien_M_Stalk_2 1/Alien_M_Stalk_3 1/Alien_M_Stalk_4
+          1/Alien_L_EyeBall/Alien_L_EyeBall1
         weight: 1
       - path: directionalLight1
         weight: 1
