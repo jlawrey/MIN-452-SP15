@@ -68,7 +68,13 @@ public class spawnFormation : MonoBehaviour {
 						typeToSpawn = aliens[1];
 
 					GameObject newAlien = Instantiate( typeToSpawn, child.position, Quaternion.identity) as GameObject;
-					newAlien.GetComponent<lookAt>().target = player.transform;
+
+					if(newAlien.GetComponent<lookAt>() != null){
+						newAlien.GetComponent<lookAt>().target = player.transform;
+					}
+					if(newAlien.GetComponent<Z_alien_AI_01>() != null){
+						newAlien.GetComponent<Z_alien_AI_01>().target = player.transform;
+					}
 					newAlien.transform.parent = child;
 					if( newAlien.transform.parent == newFormation.transform)
 						Destroy(newAlien);
