@@ -69,8 +69,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Sword_SPecial_01
       takeName: Take 001
-      firstFrame: 1
-      lastFrame: 87
+      firstFrame: 7.69999981
+      lastFrame: 27
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
