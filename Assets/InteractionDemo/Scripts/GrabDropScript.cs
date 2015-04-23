@@ -91,7 +91,7 @@ public class GrabDropScript : MonoBehaviour
 								Application.LoadLevel("MMM_Level_01");
 								Destroy(gameObject);
 								//gameObject.SetActive(false);
-								//break;
+								break;
 							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Instructions"){
 
 								print("hit game object");
@@ -100,7 +100,7 @@ public class GrabDropScript : MonoBehaviour
 								Application.LoadLevel("Instructions");
 								Destroy(gameObject);
 								//gameObject.SetActive(false);
-								//break;
+								break;
 							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Options"){
 
 								print("hit game object");
@@ -109,7 +109,7 @@ public class GrabDropScript : MonoBehaviour
 								Application.LoadLevel("Options");
 								Destroy(gameObject);
 								//gameObject.SetActive(false);
-								//break;
+								break;
 							}else if (hit.collider.gameObject == obj && obj.gameObject.tag == "Main"){
 
 								print("hit " + obj.gameObject.tag);
@@ -118,7 +118,7 @@ public class GrabDropScript : MonoBehaviour
 								Application.LoadLevel("MainMenu");
 								Destroy(gameObject);
 								//gameObject.SetActive(false);
-								//break;
+								break;
 							}
 						}
 					}

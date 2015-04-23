@@ -6,7 +6,8 @@ public class Z_MenuChooser : MonoBehaviour {
 
 	public void LoadScene(string scene){
 
-		Application.LoadLevel (scene);
+		Z_LoadInterlude.to_scene = scene;
+		Application.LoadLevel ("Loading");
 
 	}
 }
