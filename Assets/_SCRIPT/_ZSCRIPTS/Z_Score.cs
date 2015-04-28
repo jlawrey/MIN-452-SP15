@@ -45,6 +45,7 @@ public class Z_Score : MonoBehaviour {
 		score = 0;
 		scoretick = GameObject.FindGameObjectWithTag ("scoretick");
 		StartCoroutine (UpgradeWeapon ());
+
 	}
 	
 	// Update is called once per frame
@@ -102,6 +103,7 @@ public class Z_Score : MonoBehaviour {
 	public bool isWeaponAdded(int nscore, int weapon_id){
 		
 		if (nscore/numToKill == weapon_id){
+			print (nscore/numToKill + " should not equal weapon_id");
 			return true;
 		}else{
 			return false;
