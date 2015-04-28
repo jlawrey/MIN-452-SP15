@@ -13,7 +13,7 @@ public class Z_ThrowSpear : MonoBehaviour {
 	public GameObject kinectweapon;
 	public Transform rightHand;
 	private Vector3 initPosition;
-	private Quaternion initRotation;
+	private Vector3 initRotation;
 	public AnimationClip[] animations;
 	// Use this for initialization
 
@@ -24,7 +24,8 @@ public class Z_ThrowSpear : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		//proxyweapon.SetActive (false);
 		initPosition = proxyweapon.transform.position;
-		initRotation = proxyweapon.transform.rotation;	}
+		initRotation = proxyweapon.transform.localEulerAngles;	
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,7 +44,7 @@ public class Z_ThrowSpear : MonoBehaviour {
 			print ("LEAVING HAND");
 			kinectweapon.transform.parent = null;
 			kinectweapon.transform.position = new Vector3(initPosition.x,initPosition.y,initPosition.z);
-			kinectweapon.transform.rotation = initRotation;
+			kinectweapon.transform.localEulerAngles = initRotation;
 			
 			
 			anim.SetTrigger("Throw Spear");
@@ -54,7 +55,7 @@ public class Z_ThrowSpear : MonoBehaviour {
 			
 			print ("RETURN TO HAND");
 			kinectweapon.transform.position = new Vector3(rightHand.transform.position.x,rightHand.transform.position.y,rightHand.transform.position.z);
-			kinectweapon.transform.rotation = rightHand.transform.rotation;
+			//kinectweapon.transform.rotation = rightHand.transform.rotation;
 			kinectweapon.transform.parent= rightHand;
 		}
 	}

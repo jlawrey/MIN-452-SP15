@@ -26,10 +26,12 @@ public class Z_Score : MonoBehaviour {
 
 
 		score += 1;
+		Z_WeaponInventory.check = true;
 		print ("score " + score);
 		GameObject scoreguy = Resources.Load<GameObject> ("Score");
 		Vector3 flat = new Vector3(scoreguy.transform.position.x +(score*.04f),scoreguy.transform.position.y,scoreguy.transform.position.z);
 		Instantiate (scoreguy, flat, Quaternion.identity);
+		Z_WeaponInventory.check = true;
   		
 
 	}

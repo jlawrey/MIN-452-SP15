@@ -55,7 +55,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			anim.SetTrigger("Fire Bolt");
 			bolt.rigidbody.AddRelativeForce(0,0,firespeed);
 			//yield return new WaitForSeconds(weaponSounds[1].length);
-			yield return new WaitForSeconds(2);
+			yield return new WaitForSeconds(3);
 			Destroy(bolt);
 		}
 

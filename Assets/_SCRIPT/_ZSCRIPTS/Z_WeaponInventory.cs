@@ -7,47 +7,59 @@ public class Z_WeaponInventory : MonoBehaviour {
 	private bool[] weaponOn;
 	public int score;
 	public int numToKill;
+	public Texture2D[] weaponTextures;
+	public AudioClip[] weaponIntros;
+	public GameObject weaponIcon;
+	public static bool check = true;
 
 	// Use this for initialization
 	void Start () {
 
 		//initialize weapons on
-		weaponOn [0] = true;
-		for (int i=1; i<weapons.Length; i++) {
-			weaponOn[i] = false;
-		}
 		//start coroutine to swap out weapons as the player obtains them
-		//StartCoroutine (weaponSwap ());
+		StartCoroutine (UpgradeWeapon ());
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		score = Z_Score.score;
-		//constantly checks for 
-		for(int i=0; i<weapons.Length;i++){
-			if (isWeaponAdded(Z_Score.score,i)) {
-				weapons[i].SetActive(true);
-			}else if (!isWeaponAdded(Z_Score.score,i)){
-				weapons[i].SetActive(false);
-			}
-		}
+//		score = Z_Score.score;
+//		//constantly checks for 
+//		for(int i=0; i<weapons.Length;i++){
+//			if (isWeaponAdded(Z_Score.score,i)) {
+//				weapons[i].SetActive(true);
+//				weaponIcon.renderer.material.mainTexture = weaponTextures[i];
+//			}else if (!isWeaponAdded(Z_Score.score,i)){
+//				weapons[i].SetActive(false);
+//			}
+//		}
 
 	
 	}
 
-	public IEnumerator weaponSwap(){
+	public IEnumerator UpgradeWeapon(){
 
-		for(int i=0;i<weapons.Length;i++) {
-			if(!weaponOn[i]){
-				weapons[i].SetActive(false);
-			}else{
-				weapons[i].SetActive(true);
+			print (check + " is check");
+			if(check){//do check for weapon upgrade
+				score = Z_Score.score;//loads score value
+				//check for current score being divided by iterator
+				for(int i=0; i<weapons.Length;i++){
+					if (isWeaponAdded(Z_Score.score,i)) {
+						weapons[i].SetActive(true);
+						weaponIcon.gameObject.SetActive(true);
+						weaponIcon.renderer.material.mainTexture = weaponTextures[i];
+						audio.PlayOneShot(weaponIntros[i]);
+						yield return new WaitForSeconds(weaponIntros[i].length);
+						weaponIcon.SetActive(false);
+						check = false;
+
+					}else if (!isWeaponAdded(Z_Score.score,i)){
+						weapons[i].SetActive(false);
+					}
+				}
 			}
-			
-		}
-		yield return null;
+
 	}
 
 	public bool isWeaponAdded(int nscore, int weapon_id){
