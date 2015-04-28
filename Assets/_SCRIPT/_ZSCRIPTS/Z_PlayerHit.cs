@@ -5,10 +5,14 @@ public class Z_PlayerHit : MonoBehaviour {
 
 	public AudioClip[] playerSounds;
 	public GameObject phit;
+	public GameObject MMM_Player_Score;
+	public Z_Score zsc;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Awake () {
+
+		MMM_Player_Score = GameObject.FindGameObjectWithTag ("MMM_P");
+		zsc = MMM_Player_Score.GetComponent<Z_Score> ();
 	}
 	
 	// Update is called once per frame
@@ -24,7 +28,7 @@ public class Z_PlayerHit : MonoBehaviour {
 
 	IEnumerator PlayerHit(){
 
-		Z_Score.AddDeath ();
+		zsc.AddDeath ();
 		phit.gameObject.SetActive (true);
 		audio.PlayOneShot (playerSounds[0]);
 		yield return new WaitForSeconds(.5f);

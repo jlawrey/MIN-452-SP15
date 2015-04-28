@@ -6,9 +6,14 @@ public class AlienDeath : MonoBehaviour {
 	public GameObject deathParticle;
 	private float upShift = 2f;
 	public AudioClip[] deathSounds;
+	public GameObject MMM_Player_Score;
+	public Z_Score zsc;
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 	
+		MMM_Player_Score = GameObject.FindGameObjectWithTag ("MMM_P");
+		zsc = MMM_Player_Score.GetComponent<Z_Score> ();
 	}
 
 
@@ -16,7 +21,7 @@ public class AlienDeath : MonoBehaviour {
 
 			print ("the particle collided");
 			StartCoroutine(explode ());
-			Z_Score.AddScore();
+			zsc.AddScore ();
 	}
 
 	void OnCollisionEnter(Collision c)
@@ -26,7 +31,7 @@ public class AlienDeath : MonoBehaviour {
 		{
 			print (gameObject.name + " hit with " + c.gameObject.name);
 			StartCoroutine(explode ());
-			Z_Score.AddScore();
+			zsc.AddScore ();
 
 		}
 
