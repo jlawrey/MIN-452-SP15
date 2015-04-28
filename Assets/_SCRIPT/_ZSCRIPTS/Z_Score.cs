@@ -44,7 +44,8 @@ public class Z_Score : MonoBehaviour {
 
 		score = 0;
 		scoretick = GameObject.FindGameObjectWithTag ("scoretick");
-		StartCoroutine (UpgradeWeapon ());
+		StartCoroutine(playWeaponEntry (0));
+
 
 	}
 	
@@ -58,7 +59,18 @@ public class Z_Score : MonoBehaviour {
 
 		score += 1;
 		print ("score " + score);
-		StartCoroutine(UpgradeWeapon());
+		for (int i=0; i<weapons.Length; i++) {
+			if (score/numToKill >= i) {
+				if(i > 0){
+					weapons [i-1].SetActive (false);
+				}
+				weapons [i].SetActive (true);
+				StartCoroutine(playWeaponEntry(i));
+			}
+		}
+
+
+		//load up the Hit alien Icon
 		GameObject scoreguy = Resources.Load<GameObject> ("Score");
 		Vector3 flat = new Vector3(scoreguy.transform.position.x +(score*.04f),scoreguy.transform.position.y,scoreguy.transform.position.z);
 		Instantiate (scoreguy, flat, Quaternion.identity);
@@ -69,7 +81,9 @@ public class Z_Score : MonoBehaviour {
 		
 		death += 1;
 		print ("death " + death);
-		StartCoroutine (UpgradeWeapon ());
+
+
+		//load up the death UI indicator
 		GameObject deathguy = Resources.Load<GameObject> ("Death");
 		Vector3 flat = new Vector3(deathguy.transform.position.x + (death*.07f),deathguy.transform.position.y,deathguy.transform.position.z);
 		Instantiate (deathguy, flat, Quaternion.identity);
@@ -82,33 +96,14 @@ public class Z_Score : MonoBehaviour {
 	}
 
 
-	public IEnumerator UpgradeWeapon(){
-		
-		//check for current score being divided by iterator
-		for(int i=0; i<weapons.Length;i++){
-			if (isWeaponAdded(score,i)) {
-				weapons[i].SetActive(true);
-				weaponIcon.gameObject.SetActive(true);
-				weaponIcon.renderer.material.mainTexture = weaponTextures[i];
-				audio.PlayOneShot(weaponIntros[i]);
-				yield return new WaitForSeconds(weaponIntros[i].length);
-				weaponIcon.SetActive(false);
-			}else if (!isWeaponAdded(score,i)){
-				weapons[i].SetActive(false);
-			}
-		}
-		
-	}
-	
-	public bool isWeaponAdded(int nscore, int weapon_id){
-		
-		if (nscore/numToKill == weapon_id){
-			print (nscore/numToKill + " should not equal weapon_id");
-			return true;
-		}else{
-			return false;
-		}
-		
+
+	public IEnumerator playWeaponEntry(int weapon_id){
+
+		weaponIcon.renderer.material.mainTexture = weaponTextures [weapon_id];
+		weaponIcon.SetActive (true);
+		audio.PlayOneShot(weaponIntros[weapon_id]);
+		yield return new WaitForSeconds(weaponIntros[weapon_id].length);
+		weaponIcon.SetActive (false);
 	}
 
 }

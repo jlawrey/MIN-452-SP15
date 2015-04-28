@@ -19,7 +19,6 @@ public class AlienDeath : MonoBehaviour {
 	
 		MMM_Player_Score = GameObject.FindGameObjectWithTag ("MMM_P");
 		zsc = MMM_Player_Score.GetComponent<Z_Score> ();
-
 	}
 
 
