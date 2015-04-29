@@ -20,7 +20,7 @@ public class jetpackHover : MonoBehaviour {
 		if (hit.distance <= flyHeight)
 		{
 			
-			rigidbody.AddForce(new Vector3(0,yBoost,0));
+			GetComponent<Rigidbody>().AddForce(new Vector3(0,yBoost,0));
 		}
 
 	

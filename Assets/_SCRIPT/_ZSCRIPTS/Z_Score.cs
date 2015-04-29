@@ -123,9 +123,9 @@ public class Z_Score : MonoBehaviour {
 
 	public IEnumerator playWeaponEntry(int weapon_id){
 
-		weaponIcon.renderer.material.mainTexture = weaponTextures [weapon_id];
+		weaponIcon.GetComponent<Renderer>().material.mainTexture = weaponTextures [weapon_id];
 		weaponIcon.SetActive (true);
-		audio.PlayOneShot(weaponIntros[weapon_id]);
+		GetComponent<AudioSource>().PlayOneShot(weaponIntros[weapon_id]);
 		yield return new WaitForSeconds(weaponIntros[weapon_id].length);
 		weaponIcon.SetActive (false);
 	}

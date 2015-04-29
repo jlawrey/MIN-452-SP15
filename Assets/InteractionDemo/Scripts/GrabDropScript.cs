@@ -153,7 +153,7 @@ public class GrabDropScript : MonoBehaviour
 				if(isReleased)
 				{
 					// restore the object's material and stop dragging the object
-					draggedObject.renderer.material = draggedObjectMaterial;
+					draggedObject.GetComponent<Renderer>().material = draggedObjectMaterial;
 					draggedObject = null;
 				}
 			}
@@ -179,7 +179,7 @@ public class GrabDropScript : MonoBehaviour
 				sInfo = "Waiting for Users...";
 			}
 			
-			infoGUI.guiText.text = sInfo;
+			infoGUI.GetComponent<GUIText>().text = sInfo;
 		}
 	}
 	

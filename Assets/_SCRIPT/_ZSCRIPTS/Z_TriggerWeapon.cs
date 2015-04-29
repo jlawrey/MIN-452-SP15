@@ -51,9 +51,9 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			GameObject bolt = Instantiate(bolt_pfab,initPosition,Quaternion.identity) as GameObject ;
 			//bolt.transform.parent = this.gameObject.transform;
 			bolt.transform.localEulerAngles = new Vector3(0,0,0);
-			audio.PlayOneShot(weaponSounds[1]);
+			GetComponent<AudioSource>().PlayOneShot(weaponSounds[1]);
 			anim.SetTrigger("Fire Bolt");
-			bolt.rigidbody.AddRelativeForce(0,0,firespeed);
+			bolt.GetComponent<Rigidbody>().AddRelativeForce(0,0,firespeed);
 			//yield return new WaitForSeconds(weaponSounds[1].length);
 			yield return new WaitForSeconds(3);
 			Destroy(bolt);
@@ -78,7 +78,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 
 			
 			anim.SetTrigger("Special Hammer 1");
-			audio.PlayOneShot(weaponSounds[0]);
+			GetComponent<AudioSource>().PlayOneShot(weaponSounds[0]);
 			yield return new WaitForSeconds(animations[0].length);
 
 			print ("RETURN TO HAND");
@@ -100,7 +100,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 
 
 			anim.SetTrigger("Special Sword 1");
-			audio.PlayOneShot(weaponSounds[1]);
+			GetComponent<AudioSource>().PlayOneShot(weaponSounds[1]);
 			yield return new WaitForSeconds(animations[1].length);
 			//proxyweapon.SetActive(false);
 			//kinectweapon.SetActive(true);
@@ -122,7 +122,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			
 			
 			anim.SetTrigger("Throw Spear");
-			audio.PlayOneShot(weaponSounds[1]);
+			GetComponent<AudioSource>().PlayOneShot(weaponSounds[1]);
 			yield return new WaitForSeconds(animations[1].length);
 
 			

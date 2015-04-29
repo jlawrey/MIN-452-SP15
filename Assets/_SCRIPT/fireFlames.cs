@@ -64,7 +64,7 @@ public class fireFlames : MonoBehaviour {
 		Vector3 fbPostion = new Vector3 (transform.position.x, transform.position.y, transform.position.z - 5);
 		GameObject fireball = Instantiate (flame, fbPostion , new Quaternion(0,0,0,0)) as GameObject;
 		fireball.transform.LookAt(player);
-		fireball.rigidbody.AddRelativeForce(0,0,fireForce);
+		fireball.GetComponent<Rigidbody>().AddRelativeForce(0,0,fireForce);
 		fireTimer = fireRate;
 		isFiring = false;
 
