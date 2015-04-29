@@ -101,7 +101,7 @@ public IEnumerator Attack(){
 		float waittime = Random.Range (1, 18.5f);
 		yield return new WaitForSeconds (waittime);
 		//anim.SetBool ("attack", true);
-		laserDistance = new Vector3( player.transform.position.x + Random.Range(-0.5f,0.5f) ,player.transform.position.y,player.transform.position.z +2f );
+		laserDistance = new Vector3( player.transform.position.x + Random.Range(0,0.5f) ,player.transform.position.y,player.transform.position.z +2.5f );
 		attacking = true;
 
 
