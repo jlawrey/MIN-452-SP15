@@ -12,6 +12,7 @@ public class Z_Score : MonoBehaviour {
 	//trigger weapon swap stuff
 	public  GameObject[] weapons = new GameObject[4];
 	public  int numToKill = 5;
+	public int numToDead = 15;
 	public  Texture2D[] weaponTextures = new Texture2D[4];
 	public  AudioClip[] weaponIntros = new AudioClip[4];
 	public  GameObject weaponIcon;
@@ -71,21 +72,21 @@ public class Z_Score : MonoBehaviour {
 				weapons[0].SetActive(true);
 				StartCoroutine(playWeaponEntry (0));
 				break;
-			case 10:
+			case 6:
 				weapons[2].SetActive(false);
 				weapons[3].SetActive(false);
 				weapons[0].SetActive(false);
 				weapons[1].SetActive(true);
 				StartCoroutine(playWeaponEntry (1));
 				break;
-			case 20:
+			case 12:
 				weapons[1].SetActive(false);
 				weapons[3].SetActive(false);
 				weapons[0].SetActive(false);
 				weapons[2].SetActive(true);
 				StartCoroutine(playWeaponEntry (2));
 				break;
-			case 30:
+			case 18:
 				weapons[1].SetActive(false);
 				weapons[0].SetActive(false);
 				weapons[2].SetActive(false);
@@ -112,7 +113,7 @@ public class Z_Score : MonoBehaviour {
 		GameObject deathguy = Resources.Load<GameObject> ("Death");
 		Vector3 flat = new Vector3(deathguy.transform.position.x + (death*.07f),deathguy.transform.position.y,deathguy.transform.position.z);
 		Instantiate (deathguy, flat, Quaternion.identity);
-		if (death > 9) {
+		if (death > numToDead) {
 
 			Application.LoadLevel(4);
 

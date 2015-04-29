@@ -72,9 +72,9 @@ public class GrabDropScript : MonoBehaviour
 				if(screenNormalPos != Vector3.zero)
 				{
 					// convert the normalized screen pos to pixel pos
-					screenPixelPos.x = (int)(screenNormalPos.x * Camera.main.pixelWidth);
-					screenPixelPos.y = (int)(screenNormalPos.y * Camera.main.pixelHeight);
-					Ray ray = Camera.main.ScreenPointToRay(screenPixelPos);
+					screenPixelPos.x = (int)(screenNormalPos.x * this.camera.pixelWidth);
+					screenPixelPos.y = (int)(screenNormalPos.y * this.camera.pixelHeight);
+					Ray ray = camera.ScreenPointToRay(screenPixelPos);
 					
 					// check for underlying objects
 					RaycastHit hit;
