@@ -45,10 +45,10 @@ public class SpawnMenuAlien : MonoBehaviour
 						
 						GameObject newAlien = Instantiate( typeToSpawn, gameObject.transform.position, Quaternion.identity) as GameObject;
 					string randAnim;
-					float roll = Random.Range(0,1f);
-					if (roll < 0.33)
+					float roll = Random.Range(0,100);
+					if (roll < 33)
 						randAnim = "MenuAnim1";
-					else if (roll > 0.33 && roll < 0.66)
+					else if (roll >= 33 && roll < 66)
 						randAnim = "MenuAnim2";
 					else
 						randAnim = "MenuAnim3";
