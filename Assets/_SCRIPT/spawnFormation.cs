@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class spawnFormation : MonoBehaviour {
 
+	public int globalDelay = 6;
 	public int numToSpawn = 1;
 	public float spawnInterval = 5f;
 	private float spawnTimer;
@@ -56,7 +57,7 @@ public class spawnFormation : MonoBehaviour {
 		spawnTimer -= Time.deltaTime;
 		if (numToSpawn > 0) 
 		{
-			if (spawnTimer <= 0)
+			if (spawnTimer <= -globalDelay)
 			{
 				GameObject newFormation = Instantiate(formations[ Random.Range(0,formations.Count) ], transform.position, Quaternion.identity) as GameObject;
 				newFormation.GetComponent<lookAt>().target = player.transform;

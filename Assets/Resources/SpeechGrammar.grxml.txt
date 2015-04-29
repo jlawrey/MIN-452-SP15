@@ -2,6 +2,26 @@
   <rule id="rootRule">
     <one-of>
       <item>
+        <tag>PLAY</tag>
+        <one-of>
+          <item> play </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>MAIN</tag>
+        <one-of>
+          <item> main </item>
+          <item> main menu </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>INSTRUCTIONS</tag>
+        <one-of>
+          <item> instructions </item>
+          <item> directions </item>
+        </one-of>
+      </item>
+      <item>
         <tag>FORWARD</tag>
         <one-of>
           <item> forwards </item>

@@ -38,6 +38,7 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
+buildweb/
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

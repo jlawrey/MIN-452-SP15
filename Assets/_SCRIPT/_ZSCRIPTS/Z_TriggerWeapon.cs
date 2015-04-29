@@ -69,8 +69,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 
 
 		if(Input.GetKeyDown("3") || gestureListener.IsSwipeLeft() ){
-			//proxyweapon.SetActive(true);
-			//kinectweapon.SetActive(false);
+
 			print ("LEAVING HAND");
 			kinectweapon.transform.parent = null;
 			kinectweapon.transform.position = new Vector3(initPosition.x,initPosition.y,initPosition.z);
@@ -85,13 +84,10 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			kinectweapon.transform.position = new Vector3(rightHand.transform.position.x,rightHand.transform.position.y,rightHand.transform.position.z);
 			kinectweapon.transform.parent= rightHand;
 
-			//proxyweapon.SetActive(false);
-			//kinectweapon.SetActive(true);
 
 		}
-		if(Input.GetKeyDown("4") || gestureListener.IsSwipeDown() ){
-			//proxyweapon.SetActive(true);
-			//kinectweapon.SetActive(false);
+		if(Input.GetKeyDown("4") || gestureListener.IsPush() ){
+
 
 			print ("LEAVING HAND");
 			kinectweapon.transform.parent = null;
@@ -102,8 +98,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 			anim.SetTrigger("Special Sword 1");
 			audio.PlayOneShot(weaponSounds[1]);
 			yield return new WaitForSeconds(animations[1].length);
-			//proxyweapon.SetActive(false);
-			//kinectweapon.SetActive(true);
+
 
 			print ("RETURN TO HAND");
 			kinectweapon.transform.position = new Vector3(rightHand.transform.position.x,rightHand.transform.position.y,rightHand.transform.position.z);
@@ -111,25 +106,7 @@ public class Z_TriggerWeapon : MonoBehaviour {
 		}
 
 		//triggers the throwing of the spear or the crossbow bolt
-		if((Input.GetKeyDown("5") && gameObject.tag == "Spear") || (gestureListener.IsPush() && gameObject.tag == "Spear") ){
-			//proxyweapon.SetActive(true);
-			//kinectweapon.SetActive(false);
-			
-			print ("LEAVING HAND");
-			kinectweapon.transform.parent = null;
-			kinectweapon.transform.position = new Vector3(initPosition.x,initPosition.y,initPosition.z);
-			kinectweapon.transform.localEulerAngles = initRotation;
-			
-			
-			anim.SetTrigger("Throw Spear");
-			audio.PlayOneShot(weaponSounds[1]);
-			yield return new WaitForSeconds(animations[1].length);
 
-			
-			print ("RETURN TO HAND");
-			kinectweapon.transform.position = new Vector3(rightHand.transform.position.x,rightHand.transform.position.y,rightHand.transform.position.z);
-			kinectweapon.transform.parent= rightHand;
-		}
 
 
 	}
