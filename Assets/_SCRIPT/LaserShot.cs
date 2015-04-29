@@ -12,7 +12,7 @@ public class LaserShot : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		GetComponent<Rigidbody>().AddRelativeForce (0, 0, force);
+		rigidbody.AddRelativeForce (0, 0, force);
 	}
 	
 	// Update is called once per frame
@@ -33,7 +33,7 @@ public class LaserShot : MonoBehaviour
 
 			transform.rotation = new Quaternion(-transform.rotation.x,-transform.rotation.y, transform.rotation.z, transform.rotation.w);
 			//transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z +1);
-			GetComponent<Rigidbody>().velocity = new Vector3 (GetComponent<Rigidbody>().velocity.x, GetComponent<Rigidbody>().velocity.y, -GetComponent<Rigidbody>().velocity.z);
+			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, rigidbody.velocity.y, -rigidbody.velocity.z);
 
 		}
 	}

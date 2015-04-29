@@ -62,8 +62,8 @@ public IEnumerator Attack(){
 		yield return new WaitForSeconds (waittime);
 		anim.SetBool ("attack", true);
 		attacking = true;
-		gameObject.GetComponent<Rigidbody>().AddRelativeForce (0, 0, force);
-		gameObject.GetComponent<Rigidbody>().AddRelativeTorque (force/4,0,0);
+		gameObject.rigidbody.AddRelativeForce (0, 0, force);
+		gameObject.rigidbody.AddRelativeTorque (force/4,0,0);
 		
 	}
 	

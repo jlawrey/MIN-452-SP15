@@ -106,7 +106,7 @@ public class SpeechManager : MonoBehaviour
 		{
 			if(errorHandler == null && debugText != null)
 			{
-				debugText.GetComponent<GUIText>().text = "Please, wait...";
+				debugText.guiText.text = "Please, wait...";
 			}
 			
 			// initialize Kinect sensor as needed
@@ -153,20 +153,20 @@ public class SpeechManager : MonoBehaviour
 
 			if(errorHandler == null && debugText != null)
 			{
-				debugText.GetComponent<GUIText>().text = "Ready.";
+				debugText.guiText.text = "Ready.";
 			}
 		} 
 		catch(DllNotFoundException ex)
 		{
 			Debug.LogError(ex.ToString());
 			if(debugText != null)
-				debugText.GetComponent<GUIText>().text = "Please check the Kinect and SAPI installations.";
+				debugText.guiText.text = "Please check the Kinect and SAPI installations.";
 		}
 		catch (Exception ex) 
 		{
 			Debug.LogError(ex.ToString());
 			if(debugText != null)
-				debugText.GetComponent<GUIText>().text = ex.Message;
+				debugText.guiText.text = ex.Message;
 		}
 	}
 
@@ -235,9 +235,9 @@ public class SpeechManager : MonoBehaviour
 			if(debugText != null)
 			{
 				if(isPhraseRecognized)
-					debugText.GetComponent<GUIText>().text = phraseTagRecognized;
+					debugText.guiText.text = phraseTagRecognized;
 				else if(isListening)
-					debugText.GetComponent<GUIText>().text = "Listening...";
+					debugText.guiText.text = "Listening...";
 			}
 		}
 	}

@@ -33,12 +33,12 @@ class WaterEditorUtility
 	
 	public static Material LocateValidWaterMaterial(Transform parent) 
 	{
-		if(parent.GetComponent<Renderer>() && parent.GetComponent<Renderer>().sharedMaterial)
-			return parent.GetComponent<Renderer>().sharedMaterial;
+		if(parent.renderer && parent.renderer.sharedMaterial)
+			return parent.renderer.sharedMaterial;
 		foreach( Transform t in parent)
 		{
-			if(t.GetComponent<Renderer>() && t.GetComponent<Renderer>().sharedMaterial)
-				return t.GetComponent<Renderer>().sharedMaterial;
+			if(t.renderer && t.renderer.sharedMaterial)
+				return t.renderer.sharedMaterial;
 		}
 		return null;
 	}

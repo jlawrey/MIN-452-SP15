@@ -364,7 +364,7 @@ public class InteractionManager : MonoBehaviour
 		{
 			Debug.LogError(ex.ToString());
 			if(debugText != null)
-				debugText.GetComponent<GUIText>().text = "Please check the Kinect SDK installation.";
+				debugText.guiText.text = "Please check the Kinect SDK installation.";
 		}
 		catch (Exception ex) 
 		{
@@ -373,7 +373,7 @@ public class InteractionManager : MonoBehaviour
 			
 			if(debugText != null)
 			{
-				debugText.GetComponent<GUIText>().text = message;
+				debugText.guiText.text = message;
 			}
 				
 			return;
@@ -910,7 +910,7 @@ public class InteractionManager : MonoBehaviour
 
 			}
 			
-			debugText.GetComponent<GUIText>().text = sGuiText;
+			debugText.guiText.text = sGuiText;
 		}
 		
 		// display the cursor status and position
@@ -938,9 +938,9 @@ public class InteractionManager : MonoBehaviour
 				texture = normalHandTexture;
 			}
 			
-			if(handCursor && handCursor.GetComponent<GUITexture>() && texture)
+			if(handCursor && handCursor.guiTexture && texture)
 			{
-				handCursor.GetComponent<GUITexture>().texture = texture;
+				handCursor.guiTexture.texture = texture;
 				handCursor.transform.position = new Vector3(cursorScreenPos.x, cursorScreenPos.y, 0f);
 			}
 		}

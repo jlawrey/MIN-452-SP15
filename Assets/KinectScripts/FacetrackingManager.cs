@@ -284,7 +284,7 @@ public class FacetrackingManager : MonoBehaviour
 		try 
 		{
 			if(debugText != null)
-				debugText.GetComponent<GUIText>().text = "Please, wait...";
+				debugText.guiText.text = "Please, wait...";
 			
 			// initialize Kinect sensor as needed
 			int rc = FacetrackingWrapper.InitKinectSensor((int)FacetrackingWrapper.Constants.ColorImageResolution, (int)FacetrackingWrapper.Constants.DepthImageResolution, FacetrackingWrapper.Constants.IsNearMode);
@@ -316,19 +316,19 @@ public class FacetrackingManager : MonoBehaviour
 			DontDestroyOnLoad(gameObject);
 
 			if(debugText != null)
-				debugText.GetComponent<GUIText>().text = "Ready.";
+				debugText.guiText.text = "Ready.";
 		} 
 		catch(DllNotFoundException ex)
 		{
 			Debug.LogError(ex.ToString());
 			if(debugText != null)
-				debugText.GetComponent<GUIText>().text = "Please check the Kinect and FT-Library installations.";
+				debugText.guiText.text = "Please check the Kinect and FT-Library installations.";
 		}
 		catch (Exception ex) 
 		{
 			Debug.LogError(ex.ToString());
 			if(debugText != null)
-				debugText.GetComponent<GUIText>().text = ex.Message;
+				debugText.guiText.text = ex.Message;
 		}
 	}
 
@@ -538,9 +538,9 @@ public class FacetrackingManager : MonoBehaviour
 //				}
 
 				if(isTrackingFace)
-					debugText.GetComponent<GUIText>().text = "Tracking - skeletonID: " + faceTrackingID + " " + sAuDebug;
+					debugText.guiText.text = "Tracking - skeletonID: " + faceTrackingID + " " + sAuDebug;
 				else
-					debugText.GetComponent<GUIText>().text = "Not tracking...";
+					debugText.guiText.text = "Not tracking...";
 			}
 		}
 	}

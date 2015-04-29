@@ -84,7 +84,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 
 		if(GestureInfo != null)
 		{
-			GestureInfo.GetComponent<GUIText>().text = "Swipe left or right to change the slides.";
+			GestureInfo.guiText.text = "Swipe left or right to change the slides.";
 		}
 	}
 	
@@ -92,7 +92,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	{
 		if(GestureInfo != null)
 		{
-			GestureInfo.GetComponent<GUIText>().text = string.Empty;
+			GestureInfo.guiText.text = string.Empty;
 		}
 	}
 
@@ -108,7 +108,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 		string sGestureText = gesture + " detected";
 		if(GestureInfo != null)
 		{
-			GestureInfo.GetComponent<GUIText>().text = sGestureText;
+			GestureInfo.guiText.text = sGestureText;
 		}
 		
 		if(gesture == KinectGestures.Gestures.SwipeLeft)

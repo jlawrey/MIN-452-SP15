@@ -19,7 +19,7 @@ public class Z_HitShield : MonoBehaviour {
 	public IEnumerator OnCollisionEnter(Collision thing){
 
 		if (thing.gameObject.tag == "Alien" || thing.gameObject.tag == "Fireball") {
-			GetComponent<AudioSource>().Play();
+			audio.Play();
 			shieldMaterial.color = new Color(1,0,0);
 			yield return new WaitForSeconds (.4f);
 			shieldMaterial.color = new Color(1,1,1);

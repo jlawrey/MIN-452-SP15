@@ -48,7 +48,7 @@ public class Z_ThrowSpear : MonoBehaviour {
 			
 			
 			anim.SetTrigger("Throw Spear");
-			GetComponent<AudioSource>().PlayOneShot(weaponSounds[1]);
+			audio.PlayOneShot(weaponSounds[1]);
 			yield return new WaitForSeconds(animations[1].length);
 			//proxyweapon.SetActive(false);
 			//kinectweapon.SetActive(true);
