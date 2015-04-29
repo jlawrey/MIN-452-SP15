@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class SpawnMenuAlien : MonoBehaviour 
 {
 
-		private float spawnInterval = 4f;
+		private float spawnInterval = 8f;
 		private float spawnTimer;
 
 		public GameObject jetpackAlienObj;
@@ -40,13 +40,12 @@ public class SpawnMenuAlien : MonoBehaviour
 				{
 					    Debug.Log("Should spawn");
 						GameObject typeToSpawn = aliens[0];
-						if (Random.Range(0f,1f) < .5)
+						if (Random.Range(0f,1f) < 0.5f)
 							typeToSpawn = aliens[1];
 						
 						GameObject newAlien = Instantiate( typeToSpawn, gameObject.transform.position, Quaternion.identity) as GameObject;
 						string randAnim = "MenuAnim1";
 						newAlien.GetComponent<Animator>().Play(randAnim);
-						Destroy(newAlien, 5);
 						spawnTimer = spawnInterval;
 				}
 				
