@@ -60,7 +60,8 @@ public class Z_Score : MonoBehaviour {
 
 		score += 1;
 		print ("score " + score);
-		int caseswitch = score/difficulty;
+		int caseswitch = score;
+		print ("adjusted score = " + caseswitch);
 		switch (caseswitch) {
 
 			case 1:
@@ -70,21 +71,21 @@ public class Z_Score : MonoBehaviour {
 				weapons[0].SetActive(true);
 				StartCoroutine(playWeaponEntry (0));
 				break;
-			case 5:
+			case 10:
 				weapons[2].SetActive(false);
 				weapons[3].SetActive(false);
 				weapons[0].SetActive(false);
 				weapons[1].SetActive(true);
 				StartCoroutine(playWeaponEntry (1));
 				break;
-			case 10:
+			case 20:
 				weapons[1].SetActive(false);
 				weapons[3].SetActive(false);
 				weapons[0].SetActive(false);
 				weapons[2].SetActive(true);
 				StartCoroutine(playWeaponEntry (2));
 				break;
-			case 15:
+			case 30:
 				weapons[1].SetActive(false);
 				weapons[0].SetActive(false);
 				weapons[2].SetActive(false);
@@ -96,7 +97,7 @@ public class Z_Score : MonoBehaviour {
 
 		//load up the Hit alien Icon
 		GameObject scoreguy = Resources.Load<GameObject> ("Score");
-		Vector3 flat = new Vector3(scoreguy.transform.position.x +(score*.04f),scoreguy.transform.position.y,scoreguy.transform.position.z);
+		Vector3 flat = new Vector3(scoreguy.transform.position.x +(score*.07f),scoreguy.transform.position.y,scoreguy.transform.position.z);
 		Instantiate (scoreguy, flat, Quaternion.identity);
   		
 
