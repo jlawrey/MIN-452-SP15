@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Z_MenuChooser : MonoBehaviour {
 
-	public bool backToMenu = false;
 
 
 	public void LoadScene(string scene){
@@ -15,14 +14,7 @@ public class Z_MenuChooser : MonoBehaviour {
 
 	void Start(){
 
-		if (backToMenu) {
-			StartCoroutine (backToGame ());
-		}
 	}
 
-	public IEnumerator backToGame(){
 
-		yield return new WaitForSeconds (6);
-		Application.LoadLevel ("MMM_Level_01");
-	}
 }

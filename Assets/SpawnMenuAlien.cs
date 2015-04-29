@@ -48,7 +48,7 @@ public class SpawnMenuAlien : MonoBehaviour
 					float roll = Random.Range(0,1f);
 					if (roll < 0.33)
 						randAnim = "MenuAnim1";
-					if (roll > 0.33 && < 0.66)
+					if (roll > 0.33 && roll < 0.66)
 						randAnim = "MenuAnim2";
 					else
 						randAnim = "MenuAnim3";

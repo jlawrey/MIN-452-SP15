@@ -88,7 +88,8 @@ public class GrabDropScript : MonoBehaviour
 								print("hit game object");
 								manager = null;
 								kill_manager = true;
-								Application.LoadLevel("MMM_Level_01");
+								Z_LoadInterlude.to_scene = "Play";
+								Application.LoadLevel("Loading");
 								Destroy(gameObject);
 								//gameObject.SetActive(false);
 								break;
@@ -97,7 +98,8 @@ public class GrabDropScript : MonoBehaviour
 								print("hit game object");
 								manager = null;
 								kill_manager = true;
-								Application.LoadLevel("Instructions");
+								Z_LoadInterlude.to_scene = "Instructions";
+								Application.LoadLevel("Loading");
 								Destroy(gameObject);
 								//gameObject.SetActive(false);
 								break;
@@ -106,7 +108,8 @@ public class GrabDropScript : MonoBehaviour
 								print("hit game object");
 								manager = null;
 								kill_manager = true;
-								Application.LoadLevel("Options");
+								Z_LoadInterlude.to_scene = "Options";
+								Application.LoadLevel("Loading");
 								Destroy(gameObject);
 								//gameObject.SetActive(false);
 								break;
@@ -115,7 +118,8 @@ public class GrabDropScript : MonoBehaviour
 								print("hit " + obj.gameObject.tag);
 								manager = null;
 								kill_manager = true;
-								Application.LoadLevel("MainMenu");
+								Z_LoadInterlude.to_scene = "MainMenu";
+								Application.LoadLevel("Loading");								
 								Destroy(gameObject);
 								//gameObject.SetActive(false);
 								break;
