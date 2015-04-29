@@ -15,7 +15,7 @@ public class ShipFireLaser : MonoBehaviour {
 	public GameObject laser;//Connection to laser shot prefab
 	public GameObject laserGun;//Connection to gun geometry
 	public Animator anim;//Connection to animator
-
+	//public 
 	public Transform shotLocation;
 
 
@@ -46,8 +46,10 @@ public class ShipFireLaser : MonoBehaviour {
 	
 	public IEnumerator FireShot()
 	{
+		audio.Play ();
+		yield return new WaitForSeconds (2f);
 		anim.SetTrigger ("fireShot");
-		yield return new WaitForSeconds (0.75f);
+		yield return new WaitForSeconds (1.5f);
 		//Instantiate shot
 		//Instantiate shot
 		Vector3 createPos = new Vector3 (shotLocation.position.x,shotLocation.position.y,shotLocation.position.z);
