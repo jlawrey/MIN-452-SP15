@@ -13,6 +13,7 @@ public class fireFlames : MonoBehaviour {
 	float startRotate;
 	float endRotate;
 	bool isFiring = false;
+	public AudioClip fireball_snd;
 
 	// Use this for initialization
 	void Start () {
@@ -59,6 +60,7 @@ public class fireFlames : MonoBehaviour {
 	
 		isFiring = true;
 		yield return new WaitForSeconds (fireDelay);
+		audio.PlayOneShot (fireball_snd);
 		Vector3 fbPostion = new Vector3 (transform.position.x, transform.position.y, transform.position.z - 5);
 		GameObject fireball = Instantiate (flame, fbPostion , new Quaternion(0,0,0,0)) as GameObject;
 		fireball.transform.LookAt(player);

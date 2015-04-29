@@ -7,6 +7,7 @@ public class Z_Score : MonoBehaviour {
 	public  int score = 0;
 	public  int death = 0;
 	public  GameObject scoretick;
+	public static int difficulty = 2;
 
 	//trigger weapon swap stuff
 	public  GameObject[] weapons = new GameObject[4];
@@ -19,7 +20,7 @@ public class Z_Score : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		weaponIcon = GameObject.FindGameObjectWithTag ("WeaponIcon");
+		//weaponIcon = GameObject.FindGameObjectWithTag ("WeaponIcon");
 		//load all the weapon prefabs into the weaponIcon class
 //		weapons = new GameObject[]{
 //			GameObject.FindGameObjectWithTag ("Hammer"),
@@ -44,7 +45,7 @@ public class Z_Score : MonoBehaviour {
 
 		score = 0;
 		scoretick = GameObject.FindGameObjectWithTag ("scoretick");
-		StartCoroutine(playWeaponEntry (0));
+		//StartCoroutine(playWeaponEntry (0));
 
 
 	}
@@ -59,14 +60,37 @@ public class Z_Score : MonoBehaviour {
 
 		score += 1;
 		print ("score " + score);
-		for (int i=0; i<weapons.Length; i++) {
-			if (score/numToKill >= i) {
-				if(i > 0){
-					weapons [i-1].SetActive (false);
-				}
-				weapons [i].SetActive (true);
-				StartCoroutine(playWeaponEntry(i));
-			}
+		int caseswitch = score/difficulty;
+		switch (caseswitch) {
+
+			case 1:
+				weapons[1].SetActive(false);
+				weapons[2].SetActive(false);
+				weapons[3].SetActive(false);
+				weapons[0].SetActive(true);
+				StartCoroutine(playWeaponEntry (0));
+				break;
+			case 5:
+				weapons[2].SetActive(false);
+				weapons[3].SetActive(false);
+				weapons[0].SetActive(false);
+				weapons[1].SetActive(true);
+				StartCoroutine(playWeaponEntry (1));
+				break;
+			case 10:
+				weapons[1].SetActive(false);
+				weapons[3].SetActive(false);
+				weapons[0].SetActive(false);
+				weapons[2].SetActive(true);
+				StartCoroutine(playWeaponEntry (2));
+				break;
+			case 15:
+				weapons[1].SetActive(false);
+				weapons[0].SetActive(false);
+				weapons[2].SetActive(false);
+				weapons[3].SetActive(true);
+				StartCoroutine(playWeaponEntry (3));
+				break;
 		}
 
 

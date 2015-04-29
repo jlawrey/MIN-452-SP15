@@ -6,6 +6,8 @@ public class Z_DelayedAudio : MonoBehaviour {
 	public AudioClip[] clips;
 	public bool[] audioLoop;
 	public float[] delay;
+	public bool usingFirstTime = true;
+	public bool isFirstTime = true;
 
 	// Use this for initialization
 	void Start () {
@@ -22,10 +24,17 @@ public class Z_DelayedAudio : MonoBehaviour {
 
 	public IEnumerator PlayClips(){
 
-		for (int i=0; i<clips.Length;i++) {
-			yield return new WaitForSeconds (delay[i]); 
-			audio.PlayOneShot(clips[i]);
-				
+		if (usingFirstTime && isFirstTime){
+			for (int i=0; i<clips.Length;i++) {
+				yield return new WaitForSeconds (delay[i]); 
+				audio.PlayOneShot(clips[i]);
+				isFirstTime = false;	
+			}
+		}else if(!usingFirstTime){
+			for (int i=0; i<clips.Length;i++) {
+				yield return new WaitForSeconds (delay[i]); 
+				audio.PlayOneShot(clips[i]);
+			}
 		}
 
 	}
