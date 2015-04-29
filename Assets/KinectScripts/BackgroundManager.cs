@@ -154,7 +154,7 @@ public class BackgroundManager : MonoBehaviour
 		{
 			Debug.LogError(ex.ToString());
 			if(debugText != null)
-				debugText.guiText.text = "Please check the Kinect SDK installation.";
+				debugText.GetComponent<GUIText>().text = "Please check the Kinect SDK installation.";
 		}
 		catch (Exception ex) 
 		{
@@ -163,7 +163,7 @@ public class BackgroundManager : MonoBehaviour
 			
 			if(debugText != null)
 			{
-				debugText.guiText.text = message;
+				debugText.GetComponent<GUIText>().text = message;
 			}
 				
 			return;
@@ -210,14 +210,14 @@ public class BackgroundManager : MonoBehaviour
 			}
 		}
 
-		if(debugText && debugText.guiText)
+		if(debugText && debugText.GetComponent<GUIText>())
 		{
 			uint userId = GetUserID();
 			string sDebug = userId != 0 ? "Tracked user ID: " + userId : string.Empty;
 
-			if(debugText.guiText.text != sDebug)
+			if(debugText.GetComponent<GUIText>().text != sDebug)
 			{
-				debugText.guiText.text = sDebug;
+				debugText.GetComponent<GUIText>().text = sDebug;
 			}
 		}
 		

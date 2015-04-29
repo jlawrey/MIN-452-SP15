@@ -24,7 +24,7 @@ public class Z_DelayedAudio : MonoBehaviour {
 
 		for (int i=0; i<clips.Length;i++) {
 			yield return new WaitForSeconds (delay[i]); 
-			audio.PlayOneShot(clips[i]);
+			GetComponent<AudioSource>().PlayOneShot(clips[i]);
 				
 		}
 

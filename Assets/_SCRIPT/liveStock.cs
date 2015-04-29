@@ -15,7 +15,7 @@ public class liveStock : MonoBehaviour {
 	{
 	getUpTimer -= Time.deltaTime;
 	
-		if (gameObject.rigidbody.velocity == Vector3.zero && getUpTimer <=0)
+		if (gameObject.GetComponent<Rigidbody>().velocity == Vector3.zero && getUpTimer <=0)
 		{
 		
 			transform.rotation = new Quaternion(0,0,0,0);

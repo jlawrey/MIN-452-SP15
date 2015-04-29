@@ -30,7 +30,7 @@ public class Z_PlayerHit : MonoBehaviour {
 
 		zsc.AddDeath ();
 		phit.gameObject.SetActive (true);
-		audio.PlayOneShot (playerSounds[0]);
+		GetComponent<AudioSource>().PlayOneShot (playerSounds[0]);
 		yield return new WaitForSeconds(.5f);
 		phit.gameObject.SetActive (false);
 	}

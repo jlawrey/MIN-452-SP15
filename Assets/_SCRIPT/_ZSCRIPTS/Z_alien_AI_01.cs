@@ -59,7 +59,7 @@ public class Z_alien_AI_01 : MonoBehaviour {
 		anim.SetTrigger ("Attack");
 		print (waittime + " ATTACK!!!");
 		anim.applyRootMotion = false;
-		floater.gameObject.rigidbody.AddRelativeForce (0, 0, force);
+		floater.gameObject.GetComponent<Rigidbody>().AddRelativeForce (0, 0, force);
 		//floater.gameObject.rigidbody.AddRelativeTorque (force/2,0,0);
 
 	}

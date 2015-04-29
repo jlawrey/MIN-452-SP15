@@ -46,7 +46,7 @@ public class AlienDeath : MonoBehaviour {
 		}
 
 		if (c.gameObject.tag == "Shield") {
-			audio.PlayOneShot(deathSounds[1]);
+			GetComponent<AudioSource>().PlayOneShot(deathSounds[1]);
 		}
 		
 	}
@@ -77,7 +77,7 @@ public class AlienDeath : MonoBehaviour {
 	IEnumerator explode()
 	{
 		print ("Hit Explode");
-		audio.PlayOneShot(deathSounds[0]);
+		GetComponent<AudioSource>().PlayOneShot(deathSounds[0]);
 		Vector3 particlePosition = new Vector3(transform.position.x,transform.position.y, transform.position.z - 1);
 		Instantiate (deathParticle, particlePosition, Quaternion.identity);
 		//Destroy(deathParticle, 1);

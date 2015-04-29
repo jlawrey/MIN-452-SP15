@@ -11,7 +11,7 @@ public class pickUp : MonoBehaviour {
 	
 	void Start () {
 		cow = new GameObject[GameObject.FindGameObjectsWithTag("Livestock").Length];
-		halo.light.range = lightChange;
+		halo.GetComponent<Light>().range = lightChange;
 		release  = false;
 	}
 	
@@ -28,12 +28,12 @@ public class pickUp : MonoBehaviour {
 			if (cow[i] != null)
 			{
 				
-				if(cow[i].gameObject.hingeJoint != null)
+				if(cow[i].gameObject.GetComponent<HingeJoint>() != null)
 				{
-					halo.light.range -= lightChange;
-						if (halo.light.range <= lightChange)
-							halo.light.range = lightChange;
-					cow[i].hingeJoint.breakForce = .001f;
+					halo.GetComponent<Light>().range -= lightChange;
+						if (halo.GetComponent<Light>().range <= lightChange)
+							halo.GetComponent<Light>().range = lightChange;
+					cow[i].GetComponent<HingeJoint>().breakForce = .001f;
 					cow[i]= null;
 					ship.SendMessage("releaseObject");
 					
@@ -54,18 +54,18 @@ public class pickUp : MonoBehaviour {
 		{
 			
 			
-			if(c.gameObject.hingeJoint == null){
+			if(c.gameObject.GetComponent<HingeJoint>() == null){
 				
-				c.gameObject.AddComponent("HingeJoint");
-				halo.light.range += lightChange;
+				c.gameObject.AddComponent<HingeJoint>();
+				halo.GetComponent<Light>().range += lightChange;
 				ship.SendMessage("gotObject");
 			}
 			
 			
-			if(c.gameObject.hingeJoint != null){
+			if(c.gameObject.GetComponent<HingeJoint>() != null){
 			//
 			
-			c.gameObject.hingeJoint.connectedBody = rigidbody;
+			c.gameObject.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
 			
 	
 			}

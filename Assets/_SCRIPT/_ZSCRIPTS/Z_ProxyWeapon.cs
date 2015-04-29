@@ -36,14 +36,14 @@ public class Z_ProxyWeapon : MonoBehaviour {
 		if(Input.GetKeyDown("3") || gestureListener.IsSwipeLeft() ){
 
 			anim.SetTrigger("Special Hammer 1");
-			audio.PlayOneShot(weaponSounds[0]);
+			GetComponent<AudioSource>().PlayOneShot(weaponSounds[0]);
 
 			
 		}
 		if(Input.GetKeyDown("4") || gestureListener.IsPush() ){
 
 			anim.SetTrigger("Special Sword 1");
-			audio.PlayOneShot(weaponSounds[0]);
+			GetComponent<AudioSource>().PlayOneShot(weaponSounds[0]);
 
 		}
 		if(Input.GetKeyDown("space") ){
