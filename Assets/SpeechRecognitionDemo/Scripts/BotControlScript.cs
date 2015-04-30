@@ -63,7 +63,7 @@ public class BotControlScript : MonoBehaviour
 				
 				switch(sPhraseTag)
 				{
-					case "FORWARD":
+					case "PLAY":
 						walkSpeed = 0.2f;
 						walkDirection = 0f;
 						break;

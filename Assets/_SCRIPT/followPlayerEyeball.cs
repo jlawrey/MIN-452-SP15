@@ -57,7 +57,7 @@ public class followPlayerEyeball : MonoBehaviour {
 
 		}
 
-		if (Vector3.Distance (transform.position, laserDistance) < 2f) 
+		if (Vector3.Distance (transform.position, laserDistance) < 5f) 
 		{
 			reachedPos = true;
 

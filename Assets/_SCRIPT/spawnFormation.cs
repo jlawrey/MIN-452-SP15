@@ -82,6 +82,7 @@ public class spawnFormation : MonoBehaviour {
 				}
 				numToSpawn--;
 				spawnTimer = spawnInterval;
+				globalDelay = 2;
 			}
 
 
